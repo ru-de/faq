@@ -1,5 +1,3 @@
-https://github.com/ewgRa/de_faq/edit/master/%D0%9F%D1%80%D0%B8%D0%B3%D0%BB%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20(Verpflichtungserkl%C3%A4rung).md
-
 ## Страница услуги
 https://service.berlin.de/dienstleistung/120691/
 

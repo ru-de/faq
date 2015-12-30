@@ -1,5 +1,11 @@
 # de_faq
 
+Полезная информация о жизни в Германии.
+
+Всегда рады pull request. Вы очень поможете, если поделитесь своим ценным и полезным опытом, исправите или сообщите об устаревшей информации.
+
+# Общение
+
 Skype conference: http://bit.ly/berlin-ru-it-chat
 
 Skype conference woman Berlin  https://join.skype.com/mA676LOZb1Eg

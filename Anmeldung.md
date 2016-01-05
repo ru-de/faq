@@ -8,7 +8,7 @@ C 01 ноября 2015 годя действуют нововведения в �
 
 [Anmeldung форма](http://www.berlin.de/formularserver/formular.php?402608)
 
-[Einzugsbestätigung](http://www.berlin.de/formularserver/formular.php?402544) - заполняет ваш landlord/арендодатель
+[Einzugsbestätigung (Wohnungsgeberbestätigung)](http://www.berlin.de/formularserver/formular.php?402544) - заполняет ваш landlord/арендодатель
 
 ##Какие доки брать?
 
@@ -18,9 +18,10 @@ You need to take the following documents to your appointment at the Buergeramt/ 
 
 2. your rental contract / tenancy agreement
 
-3. confirmation of move-in by the landlord (Einzugsbestätigung)
+3. confirmation of move-in by the landlord ([Einzugsbestätigung (Wohnungsgeberbestätigung)](http://www.berlin.de/formularserver/formular.php?402544))
 
-4. filled-in registration form
+4. filled-in registration [form](http://www.berlin.de/formularserver/formular.php?402608)
+
 5. Документы на членов семьи, проживающих с вами. Чаще всего просят всех присутствовать при первой регистрации. При перерегистрации можно ходить одному.
 
 ##Tips & Tricks

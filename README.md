@@ -6,7 +6,9 @@
 
 # Общение
 
-Skype conference: http://bit.ly/berlin-ru-it-chat (и сайт этого чатика, http://asdcode.de)
+Skype conference: http://bit.ly/berlin-ru-it-chat 
+
+Сайт: http://asdcode.de
 
 [Slack chat invites](https://slack-files.com/T09S9JDU1-F0HHEG8PK-c9396c730a)
 

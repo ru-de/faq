@@ -1,8 +1,9 @@
-install:
-  - sudo npm install yaspeller -g
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y hunspell hunspell-ru hunspell-en-us
 
 script:
-  - yaspeller .
+  - git diff HEAD^ | hunspell -d ru_RU,en_US | grep "^&"
 
 notifications:
   email: false

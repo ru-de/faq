@@ -1,5 +1,6 @@
-install:
-  - sudo apt-get install hundspell hunspell-ru hunspell-en-us
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y hundspell hunspell-ru hunspell-en-us
 
 script:
   - git diff HEAD^ | hunspell -d ru_RU,en_US | grep "^&"

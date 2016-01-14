@@ -1,0 +1,8 @@
+install:
+  - sudo npm install yaspeller -g
+
+script:
+  - yaspeller .
+
+notifications:
+  email: false

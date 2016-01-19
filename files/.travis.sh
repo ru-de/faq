@@ -5,25 +5,22 @@ EXIT_CODE=0
 
 go build -o $DIR/spell-checker $DIR/spell-checker.go
 
-cat $DIR/dictionary.dic | wc -l > $DIR/dictionary_custom.dic
-cat $DIR/dictionary.dic | sort >> $DIR/dictionary_custom.dic
+cat $DIR/dictionary.dic | tr '\n' '|' | sed 's/\x27/\\x27/g' > dictionary_processed
+
+DICT_REGEXP=$(cat dictionary_processed | sed 's/|/[^[:alnum:]]\\|/g')
+DICT_REGEXP_EOF=$(cat dictionary_processed | sed 's/|$//g' | sed 's/|/$\\|/g')
+DICT_REGEXP="$DICT_REGEXP$DICT_REGEXP_EOF$"
 
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' > changed_files
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
+    OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//g" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,ru_RU,de_DE,en_US | $DIR/spell-checker);
+    EXIT_CODE=$?
 
-    OUTPUT_RU=$(cat "$FILE" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,$DIR/dictionary_custom,ru_RU,$DIR/dictionary_custom,en_US,de_DE | $DIR/spell-checker);
-    RU_EXIT_CODE=$?
-    OUTPUT_EN=$(cat "$FILE" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d en_US,russian-aot,$DIR/dictionary_custom,ru_RU,$DIR/dictionary_custom,de_DE | $DIR/spell-checker);
-    EN_EXIT_CODE=$?
-    OUTPUT_DE=$(cat "$FILE" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d de_DE,en_US,russian-aot,$DIR/dictionary_custom,ru_RU$DIR/dictionary_custom, | $DIR/spell-checker);
-    DE_EXIT_CODE=$?
-
-    if [ $RU_EXIT_CODE -ne 0 ] || [ $EN_EXIT_CODE -ne 0 ] || [ $DE_EXIT_CODE -ne 0 ]; then
-        EXIT_CODE=1;
+    if [ $EXIT_CODE -ne 0 ]; then
         echo "ошибка";
-        echo "$OUTPUT_RU\n$OUTPUT_DE\n$OUTPUT_EN" | sort -n -k2 | uniq;
+        echo "$OUTPUT";
     else
         echo "пройдена";
     fi

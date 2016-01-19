@@ -16,9 +16,10 @@ git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' > changed_files
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
     OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//g" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,ru_RU,de_DE,en_US | $DIR/spell-checker);
-    EXIT_CODE=$?
+    OUTPUT_EXIT_CODE=$?
 
-    if [ $EXIT_CODE -ne 0 ]; then
+    if [ $OUTPUT_EXIT_CODE -ne 0 ]; then
+        EXIT_CODE=1
         echo "ошибка";
         echo "$OUTPUT";
     else

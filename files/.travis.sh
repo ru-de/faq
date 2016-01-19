@@ -4,8 +4,8 @@ DIR=`dirname $0`
 EXIT_CODE=0
 
 go build -o $DIR/spell-checker $DIR/spell-checker.go
-exit
-git diff HEAD^ --name-only > changed_files
+
+git diff HEAD^ --name-status | grep "^D" -v | awk '{print $2}' > changed_files
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
@@ -22,6 +22,8 @@ while read FILE; do
     else
         echo "пройдена";
     fi
+
+    echo
 done < changed_files
 
 exit $EXIT_CODE

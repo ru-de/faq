@@ -4,7 +4,7 @@ before_install:
   - curl -s http://extensions.libreoffice.org/extension-center/russian-spellcheck-dictionary.-based-on-works-of-aot-group | grep -oP "http://extensions.libreoffice.org/extension-center/russian-spellcheck-dictionary.-based-on-works-of-aot-group/pscre[^\"]+" | sort -r | head -1 | wget -q -i - -O dictionary.otx
   - unzip dictionary.otx
 script:
-  - sh .travis.sh
+  - sh files/.travis.sh
 
 notifications:
   email: false

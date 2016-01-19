@@ -4,6 +4,8 @@ import (
     "fmt"
     "os"
     "bufio"
+    "regexp"
+    "strings"
 )
 
 
@@ -23,11 +25,18 @@ func main() {
     _, ok := types["&"]
 
     if ok {
+        var dropCol = regexp.MustCompile(`^([^ ]+) \d+ \d+:(.*)$`)
+        var minimumWord = regexp.MustCompile(`^[^ ]{3}`)
+        exitCode := 0
+
         for _, result := range types["&"].results {
-            fmt.Println("Строка " + fmt.Sprintf("%v", result.line) + ":" + result.word)
+            if minimumWord.MatchString(result.word) {
+                exitCode = 1
+                fmt.Println("Строка " + fmt.Sprintf("%v", result.line) + ": " + dropCol.ReplaceAllString(result.word, "$1 >$2"))
+            }
         }
 
-        os.Exit(1)
+        os.Exit(exitCode)
     }
 }
 
@@ -44,6 +53,7 @@ func parseHunspellOutput(scanner *bufio.Scanner) map[string]*TypeResult {
             line++;
         } else {
             resultType := text[0:1]
+
             typeResult, ok := types[resultType]
 
             if !ok {
@@ -51,7 +61,7 @@ func parseHunspellOutput(scanner *bufio.Scanner) map[string]*TypeResult {
                 types[resultType] = typeResult
             }
 
-            typeResult.results = append(typeResult.results, Result{line: line, word: text[1:]})
+            typeResult.results = append(typeResult.results, Result{line: line, word: strings.Trim(text[1:], " ")})
         }
     }
 

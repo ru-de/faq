@@ -20,6 +20,8 @@
 
 Чат в Gitter: https://gitter.im/ewgRa/de_faq
 
+Чат в Discord: https://discord.gg/0lnsPWfUD129B0Ie
+
 Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
 
 Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/

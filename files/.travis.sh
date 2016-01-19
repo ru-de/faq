@@ -18,7 +18,7 @@ while read FILE; do
     if [ $RU_EXIT_CODE -ne 0 ] || [ $EN_EXIT_CODE -ne 0 ]; then
         EXIT_CODE=1;
         echo "ошибка";
-        echo "$OUTPUT_RU\n$OUTPUT_EN" | sort -n -k1,4;
+        echo "$OUTPUT_RU\n$OUTPUT_EN" | sort -n -k2;
     else
         echo "пройдена";
     fi

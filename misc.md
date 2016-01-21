@@ -12,7 +12,7 @@
 - http://airvpn.org - сам пользуюсь больше года, очень доволен
 - https://vpn.ht/ - дешево (5 долларов в месяц после триала) и надежно
 - http://hidemyass.com/
-- http://vpngate.net - бесплатный каталог впн по всему миру (не все стабильные)
+- http://vpngate.net - бесплатный каталог VPN по всему миру (не все стабильные)
 - http://prosto.net.ua - гигабитный VPN в Украину за $5 в мес
 
 ### Спец. решения для торрентов
@@ -22,4 +22,4 @@
 
 ### Плагины для медиафайлов
 - https://proxtube.com/ - бесплатный плагин для Chrome и Firefox (для разблокирования музыки/видео на youtube) (поверьте, [GEMA](https://en.wikipedia.org/wiki/GEMA_(German_organization)) - очень злая организация, многое заблокировано)
-- [vk-downloader](https://chrome.google.com/webstore/detail/vk-downloader/pbjdlpaffkkdggnabfdbhbfbncmcckio?hl=ru) - позволяет безопасно качать фильмы и музыку с VK (по поводу просмотра/прослушивания онлайн нет четкого мнения, если контент при том не стримится, то по идее можно)
+- [vk-downloader](https://chrome.google.com/webstore/detail/vk-downloader/pbjdlpaffkkdggnabfdbhbfbncmcckio?hl=ru) - позволяет безопасно качать фильмы и музыку с VK (по поводу просмотра/прослушивания онлайн нет четкого мнения, если контент при том не раздается, то по идее можно)

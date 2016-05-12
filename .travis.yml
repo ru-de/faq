@@ -1,0 +1,11 @@
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y hunspell hunspell-ru hunspell-en-us hunspell-de-de
+  - curl -s http://extensions.libreoffice.org/extension-center/russian-spellcheck-dictionary.-based-on-works-of-aot-group | grep -oP "http://extensions.libreoffice.org/extension-center/russian-spellcheck-dictionary.-based-on-works-of-aot-group/pscre[^\"]+" | sort -r | head -1 | wget -q -i - -O dictionary.otx
+  - unzip dictionary.otx
+  - git config core.quotepath false
+script:
+  - sh files/.travis.sh
+
+notifications:
+  email: false

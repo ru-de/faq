@@ -25,5 +25,3 @@
 Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
 
 Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/
-
-Сайт, на котором также публикуется полезная информация, а также опросы и прочее: http://asdcode.de/

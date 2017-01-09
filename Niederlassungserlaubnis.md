@@ -1,8 +1,10 @@
 ## Что такое Niederlassungserlaubnis?
+- [ ] TODO перевести на русский язык 
+
 The Niederlassungserlaubnis (permanent Residence permit) is a permit that allows foreigners from non-EU states to live and work freely in Germany. It's also referred to as the unbefristete Aufenthaltserlaubnis.
 
 ## В чем разница между Blaue Karte и Niederlassungserlaubnis?
-TODO
+- [ ] TODO написать в чем разница, точно в количестве разрешенного отсутвия в Германии и в ЕС
 
 ## Как получить неограниченное разрешение на пребывание (Niederlassungserlaubnis) владельцам Blaue Karte?
 

@@ -17,9 +17,9 @@ before_install:
   - git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' > changed_files_links
   - sed -i -e 's/^/http:\/\/localhost\//' changed_files_links
   - sed -i -e 's/$/.html/' changed_files_links
-  - wget --spider -erobots=off -r -nd -nv -H -l 1 -o broken_links.log -i changed_files_links
 
 script:
+  - wget --spider -erobots=off -r -nd -H -l 1 -i changed_files_links
   - cat broken_links.log
   - sh files/.travis.sh
 

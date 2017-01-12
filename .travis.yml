@@ -15,6 +15,8 @@ before_install:
   - find *.md -exec blackfriday-tool {} {}.html \;
   - cat README.md.html
   - nohup serve -addr="127.0.0.1:80" >/dev/null 2>&1 &
+  - sleep 1
+  - ps ax
   - git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' > changed_files_links
   - sed -i -e 's/^/http:\/\/localhost\//' changed_files_links
   - sed -i -e 's/$/.html/' changed_files_links

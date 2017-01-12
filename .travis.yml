@@ -10,20 +10,9 @@ before_install:
   - cat .dict_page | grep -oP -f .current_release | wget -q -i - -O dictionary.otx
   - unzip dictionary.otx
   - git config core.quotepath false
-  - go get -u github.com/peterhellberg/serve
   - go get -u github.com/russross/blackfriday-tool
-  - find *.md -exec blackfriday-tool {} {}.html \;
-  - cat README.md.html
-  - nohup serve -addr="127.0.0.1:80" >/dev/null 2>&1 &
-  - sleep 1
-  - ps ax
-  - git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' > changed_files_links
-  - sed -i -e 's/^/http:\/\/localhost\//' changed_files_links
-  - sed -i -e 's/$/.html/' changed_files_links
 
 script:
-  - wget --spider -erobots=off -r -nd -H -l 1 -i changed_files_links
-  - cat broken_links.log
   - sh files/.travis.sh
 
 notifications:

@@ -12,10 +12,11 @@ DICT_REGEXP=$(cat dictionary_processed | sed 's/|/[^[:alnum:]]\\|/g')
 DICT_REGEXP_EOF=$(cat dictionary_processed | sed 's/|$//g' | sed 's/|/$\\|/g')
 DICT_REGEXP="$DICT_REGEXP$DICT_REGEXP_EOF$"
 
-git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' > changed_files
+git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > changed_files
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
+
     OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,ru_RU,de_DE,en_US | $DIR/spell-checker);
     OUTPUT_EXIT_CODE=$?
 
@@ -36,8 +37,8 @@ while read FILE; do
 
         if [ -s links ]; then
             echo "Проверка файла $FILE на недоступные ссылки... ";
+
             while read LINK; do
-                echo -n "Ссылка $LINK ... ";
                 REGEXP_LINK=$(echo $LINK | sed 's/[]\.|$(){}?+*^[]/\\&/g')
                 LINK=$(echo "$LINK" | sed -e 's/\[/\\\[/g' -e 's/\]/\\\]/g' -e 's/\&amp;/\&/g')
                 status=$(curl --insecure -XGET -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" -m 10 -L -s --head -w %{http_code} $LINK -o /dev/null)
@@ -49,12 +50,10 @@ while read FILE; do
 
                 if [ "$status" != "$expectedStatus" -a "$status" != "200" ]; then
                     EXIT_CODE=1
-                    echo "недоступна с кодом $status, ожидается $expectedStatus";
-                else
-                    echo "доступна";
+                    echo "Ссылка $LINK ... недоступна с кодом $status, ожидается $expectedStatus";
+                    echo
                 fi
 
-                echo
             done < links
 
             echo

@@ -28,4 +28,6 @@
 
 Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/
 
-чиото ?
+чиоточечьки ?
+
+аацуацйацуацуа

@@ -28,6 +28,6 @@
 
 Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/
 
-праблемы ?
+Есть праблемы?
 
-паслать
+На них паслать.

@@ -12,7 +12,7 @@ DICT_REGEXP=$(cat dictionary_processed | sed 's/|/[^[:alnum:]]\\|/g')
 DICT_REGEXP_EOF=$(cat dictionary_processed | sed 's/|$//g' | sed 's/|/$\\|/g')
 DICT_REGEXP="$DICT_REGEXP$DICT_REGEXP_EOF$"
 
-git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' > changed_files
+git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > changed_files
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";

@@ -49,7 +49,7 @@ while read FILE; do
 
                 if [ "$status" != "$expectedStatus" -a "$status" != "200" ]; then
                     EXIT_CODE=1
-                    echo -n "Ссылка $LINK ... недоступна с кодом $status, ожидается $expectedStatus";
+                    echo "Ссылка $LINK ... недоступна с кодом $status, ожидается $expectedStatus";
                 fi
 
                 echo

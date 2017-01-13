@@ -47,7 +47,7 @@ while read FILE; do
                     expectedStatus="200"
                 fi
 
-                if [ "$status" != "$expectedStatus" ]; then
+                if [ "$status" != "$expectedStatus" -a "$status" != "200" ]; then
                     EXIT_CODE=1
                     echo "недоступна с кодом $status, ожидается $expectedStatus";
                 else

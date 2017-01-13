@@ -3,6 +3,7 @@
 DIR=`dirname $0`
 EXIT_CODE=0
 
+find *.md -exec blackfriday-tool {} {}.html \;
 go build -o $DIR/spell-checker $DIR/spell-checker.go
 
 cat $DIR/dictionary.dic | tr '\n' '|' | sed 's/\x27/\\x27/g' > dictionary_processed
@@ -27,6 +28,38 @@ while read FILE; do
     fi
 
     echo
+done < changed_files
+
+while read FILE; do
+    if [ -f "${FILE}.html" ]; then
+        grep -Po '(?<=href=")http[^"]*(?=")' "${FILE}.html" > links
+
+        if [ -s links ]; then
+            echo "Проверка файла $FILE на битые ссылки... ";
+            while read LINK; do
+                echo -n "Ссылка $LINK ... ";
+                REGEXP_LINK=$(echo $LINK | sed 's/[]\.|$(){}?+*^[]/\\&/g')
+                LINK=$(echo "$LINK" | sed -e 's/\[/\\\[/g' -e 's/\]/\\\]/g' -e 's/\&amp;/\&/g')
+                status=$(curl --insecure -XGET -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" -m 10 -L -s --head -w %{http_code} $LINK -o /dev/null)
+                expectedStatus=$(grep -oP "[^,]+,$REGEXP_LINK$" files/known_url.txt | cut -d',' -f1)
+
+                if [ -z "$expectedStatus" ]; then
+                    expectedStatus="200"
+                fi
+
+                if [ "$status" != "$expectedStatus" -a "$status" != "200" ]; then
+                    EXIT_CODE=1
+                    echo "недоступна с кодом $status, ожидается $expectedStatus";
+                else
+                    echo "доступна";
+                fi
+
+                echo
+            done < links
+
+            echo
+        fi
+    fi
 done < changed_files
 
 exit $EXIT_CODE

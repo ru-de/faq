@@ -35,7 +35,7 @@ while read FILE; do
         grep -Po '(?<=href=")http[^"]*(?=")' "${FILE}.html" > links
 
         if [ -s links ]; then
-            echo "Проверка файла $FILE на битые ссылки... ";
+            echo "Проверка файла $FILE на недоступные ссылки... ";
             while read LINK; do
                 echo -n "Ссылка $LINK ... ";
                 REGEXP_LINK=$(echo $LINK | sed 's/[]\.|$(){}?+*^[]/\\&/g')

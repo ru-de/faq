@@ -41,7 +41,7 @@ while read FILE; do
                 REGEXP_LINK=$(echo $LINK | sed 's/[]\.|$(){}?+*^[]/\\&/g')
                 LINK=$(echo "$LINK" | sed -e 's/\[/\\\[/g' -e 's/\]/\\\]/g' -e 's/\&amp;/\&/g')
                 status=$(curl --insecure -XGET -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" -m 10 -L -s --head -w %{http_code} $LINK -o /dev/null)
-                expectedStatus=$(grep -oP "[^,]+,$REGEXP_LINK$" files/known_url.txt | cut -d',' -f1)
+                expectedStatus=$(grep -oP "[^,]+,$REGEXP_LINK$" files/known_url.csv | cut -d',' -f1)
 
                 if [ -z "$expectedStatus" ]; then
                     expectedStatus="200"

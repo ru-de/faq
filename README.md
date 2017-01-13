@@ -28,6 +28,6 @@
 
 Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/
 
-чиоточечьки ?
+праблемы ?
 
-аацуацйацуацуа
+паслать

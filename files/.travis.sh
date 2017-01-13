@@ -16,15 +16,8 @@ git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > c
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
-    cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g"
     OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,ru_RU,de_DE,en_US | $DIR/spell-checker);
     OUTPUT_EXIT_CODE=$?
-
-    echo "дебаг";
-    echo "$OUTPUT";
-    echo "$OUTPUT_EXIT_CODE";
-
-    cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,ru_RU,de_DE,en_US
 
     if [ $OUTPUT_EXIT_CODE -ne 0 ]; then
         EXIT_CODE=1

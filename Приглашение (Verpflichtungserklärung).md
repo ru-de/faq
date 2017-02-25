@@ -26,6 +26,19 @@ https://service.berlin.de/dienstleistung/120691/
 Если вы собираетесь делать 2 приглашения сразу, возьмите 2 термина на один день, достаточно придти по первому и сказать о втором.
 [Скрипт](https://gist.github.com/globalundo/b0e8f88f110cc54fdb71) для ловли термина
 
+## Анкета
+
+В поле:
+
+> Identitätsdokument (1) /Aufenthaltstitel (2) / Document d ́identité (1)/ Titre de séjour (2) Identity card (1) / Residence title (2)
+
+необходимо вписать номер паспорта **и** Aufenthaltstitel в формате:
+
+- **Pass Nr. AB123456 / Blaue Karte EU**
+
+или:
+
+- **Pass Nr. AB123456 / Niederlassungserlaubnis**
 
 ## [Общая информация](https://service.berlin.de/dienstleistung/120691/)
 В форме заявки необходимо указать, как минимум, дату начала действия визы Beginn der voraussichtlichen Visumgültigkeit am.

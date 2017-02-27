@@ -2,7 +2,7 @@
 https://service.berlin.de/dienstleistung/120691/
 
 ## Документы
- 
+
 1. Голубая карта
 
 2. Справки о зарплате за последние три месяца - оригиналы (вернут) и копии
@@ -21,15 +21,28 @@ https://service.berlin.de/dienstleistung/120691/
 В [памятке](https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/service.246503.php/dienstleistung/120691/pdf/) дано много вариантов подтверждения финансового обеспечения, в том числе с суммами какие удовлетворяют, например 1000 EUR месячного дохода на приглашенного, если он едет в сопровождении 320 EUR за каждого взрослого и 225 EUR за ребенка. Или же количество денег на сберегательном счету: 12000 EUR, 3.850 EUR и 2.700 EUR соответсвенно.
 
 
-## [Термин](https://service.berlin.de/terminvereinbarung/termin/tag.php?termin=1&dienstleister=121918&anliegen[]=120691&herkunft=1) 
+## [Термин](https://service.berlin.de/terminvereinbarung/termin/tag.php?termin=1&dienstleister=121918&anliegen[]=120691&herkunft=1)
 
 Если вы собираетесь делать 2 приглашения сразу, возьмите 2 термина на один день, достаточно придти по первому и сказать о втором.
 [Скрипт](https://gist.github.com/globalundo/b0e8f88f110cc54fdb71) для ловли термина
 
+## Анкета
+
+В поле:
+
+> Identitätsdokument (1) /Aufenthaltstitel (2) / Document (1)/ (2) Identity card (1) / Residence title (2)
+
+необходимо вписать номер паспорта **и** Aufenthaltstitel в формате:
+
+- **Pass Nr. AB123456 / Blaue Karte EU**
+
+или:
+
+- **Pass Nr. AB123456 / Niederlassungserlaubnis**
 
 ## [Общая информация](https://service.berlin.de/dienstleistung/120691/)
 В форме заявки необходимо указать, как минимум, дату начала действия визы Beginn der voraussichtlichen Visumgültigkeit am.
-Так как максимальный срок пребывания 90 дней, то клерк может вписать в приглашение и дату окончания. Для многократного посещения в графу нужно написать, что требуется именно Multivisa, например: 15.10.2016 Multivisa für 2 Jahre. Тогда в приглашении в графе "Planned length of stay" будет что-то вроде gewünscht Multivisa für 2 Jahre. 
+Так как максимальный срок пребывания 90 дней, то клерк может вписать в приглашение и дату окончания. Для многократного посещения в графу нужно написать, что требуется именно Multivisa, например: 15.10.2016 Multivisa für 2 Jahre. Тогда в приглашении в графе "Planned length of stay" будет что-то вроде gewünscht Multivisa für 2 Jahre.
 В одной приглашении можно указать супруга или супругу приглашенного человека и его несовершеннолетних детей.
 При подаче приглашения совсем не лишним будет приложить еще рукописное приглашение, ему в посольствах всегда рады.
 

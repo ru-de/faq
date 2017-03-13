@@ -78,6 +78,6 @@ https://service.berlin.de/dienstleistung/120691/
 
 Для [украинцев](http://www.kiew.diplo.de/Vertretung/kiew/uk/05/Visa/Antragstellungen/Gebuehr.html) и [россиян](http://www.germania.diplo.de/contentblob/4227270/Daten/4271962/besuchsreisen_nahe_verwandte.pdf) есть возможность получить для родителей или детей многоразовую визу, сроком до 5 лет (но максимум срок residence permit), а так же освободить их от уплаты визового сбора. 
 
-Апеллировать необходимо к соответсвующим законам, которые регламентируют упрощенное оформление виз между [Украиной и ЕС](http://eur-lex.europa.eu/legal-content/DE/TXT/?uri=uriserv:OJ.L_.2007.332.01.0066.01.DEU) статья `5.1` пункт `с` а также [Россией и ЕС](http://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:22007A0517(01)&from=DE) статья `5.1` пункт `b`.
+Апеллировать необходимо к соответствующим законам, которые регламентируют упрощенное оформление виз между [Украиной и ЕС](http://eur-lex.europa.eu/legal-content/DE/TXT/?uri=uriserv:OJ.L_.2007.332.01.0066.01.DEU) статья `5.1` пункт `с` а также [Россией и ЕС](http://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:22007A0517(01)&from=DE) статья `5.1` пункт `b`.
 
 Для россиян визовый сбор на детей оплачивается в любом случае (практика приглашения семьи жены, с фин. обеспечением от мужа. Источник: ген. консульство в г. Санкт-Петербург).

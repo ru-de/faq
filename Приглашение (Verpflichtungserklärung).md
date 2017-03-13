@@ -33,7 +33,7 @@ https://service.berlin.de/dienstleistung/120691/
 
 необходимо вписать номер паспорта **и** Aufenthaltstitel в формате:
 
-`Pass Nr. AB123456 / Blaue Karte EU`
+`Pass Nr. AB123456 / Blaue Karte EU `
 
 или:
 
@@ -70,7 +70,10 @@ https://service.berlin.de/dienstleistung/120691/
 А так же:
 - Копию загранпаспорта того, кто оформлял приглашение;
 - Копию Blaue Karte (Голубая Карта);
+  - Или другой вид Aufenthaltstitel;
 - Копию Zusatzblatt;
+  - Только в паре с Blaue Karte;
+  - Только если в Blaue Karte есть ссылка на Zusatzblatt;
 - Оригинал Verpflichtungserklärung.
 
 В этом случае консульский сбор взиматься не должен.

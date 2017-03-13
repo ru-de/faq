@@ -7,8 +7,8 @@ https://service.berlin.de/dienstleistung/120691/
 1. Заполненная [анкета](https://www.berlin.de/labo/_assets/buergerdienste/angaben_zur_verpflichtungserklaerung.pdf);
   * Бланки есть в комнате ожидания;
 2. Загранпаспорт;
-3. Blaue Karte (Блюкард);
-4. Zusatzblatt (Зелёное дополнение к блюкарте);
+3. Blaue Karte (Голубая Карта);
+4. Zusatzblatt (Зелёное дополнение к Голубой Карте);
   * Только если в Blaue Karte есть ссылка на Zusatzblatt;
 5. Справки о зарплате за последние три месяца в оригинале;
   * Можно сделать по одной копии с каждой справки самому или заплатить €0.50 за каждый лист на месте;
@@ -69,7 +69,7 @@ https://service.berlin.de/dienstleistung/120691/
 
 А так же:
 - Копию загранпаспорта того, кто оформлял приглашение;
-- Копию Blaue Karte (Блюкард);
+- Копию Blaue Karte (Голубая карта);
 - Копию Zusatzblatt;
 - Оригинал Verpflichtungserklärung.
 

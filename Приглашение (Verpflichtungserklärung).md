@@ -29,7 +29,7 @@ https://service.berlin.de/dienstleistung/120691/
 
 В поле:
 
-> Identitätsdokument (1) /Aufenthaltstitel (2) / Document (1)/ (2) Identity card (1) / Residence title (2)
+> Identitätsdokument (1) / Aufenthaltstitel (2) / Document (1) / (2) Identity card (1) / Residence title (2)
 
 необходимо вписать номер паспорта **и** Aufenthaltstitel в формате:
 

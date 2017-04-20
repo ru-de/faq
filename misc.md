@@ -1,6 +1,8 @@
 # Разное
 
 * Сервис, который облегчает расторжение договоров: https://www.aboalarm.de
+* Расторгнуть договор с Vodafone:
+https://www.vodafone.de/hilfe/vertrag/vertrag-laufzeit.html#wie-kuendige-ich-meinen-vertrag
 * Набор интерактивных карт Берлина от Morgenpost: http://bit.ly/berlin-interactive-map
 
 ## Скачивание фильмов / музыки 

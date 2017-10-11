@@ -22,7 +22,11 @@
 
 Чат в Discord: https://discord.gg/0lnsPWfUD129B0Ie
 
-Чат в Telegram: https://telegram.me/berlinru (Берлин), https://t.me/joinchat/AAAAAEB2xAPfsYsDipSlew (Мюнхен), https://t.me/tractor_de (Общий чат Германия).
+Чат в Telegram:
+
+- Общий чат Германия: https://t.me/tractor_de
+- Берлин: https://t.me/berlinru 
+- Мюнхен: https://t.me/muenchentraktor 
 
 Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
 

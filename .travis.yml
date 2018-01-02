@@ -3,10 +3,10 @@ sudo: required
 before_install:
   - export GOPATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace:$GOPATH"
   - export PATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace/bin:$PATH"
-  - sudo -E bash -x files/check-install.sh
+  - sudo env PATH=$PATH GOPATH=$GOPATH sh files/check-install.sh
 
 script:
-  - bash -x files/check.sh
+  - sh files/check.sh
 
 notifications:
   email: false

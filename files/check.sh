@@ -1,10 +1,9 @@
 #!/bin/bash
 
+set -e
+
 DIR=`dirname $0`
 EXIT_CODE=0
-
-find *.md -exec blackfriday-tool {} {}.html \;
-go build -o $DIR/spell-checker $DIR/spell-checker.go
 
 cat $DIR/dictionary.dic | tr '\n' '|' | sed 's/\x27/\\x27/g' > dictionary_processed
 
@@ -13,6 +12,8 @@ DICT_REGEXP_EOF=$(cat dictionary_processed | sed 's/|$//g' | sed 's/|/$\\|/g')
 DICT_REGEXP="$DICT_REGEXP$DICT_REGEXP_EOF$"
 
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > changed_files
+
+go build -o $DIR/spell-checker $DIR/spell-checker.go
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
@@ -30,6 +31,8 @@ while read FILE; do
 
     echo
 done < changed_files
+
+find *.md -exec blackfriday-tool {} {}.html \;
 
 while read FILE; do
     if [ -f "${FILE}.html" ]; then

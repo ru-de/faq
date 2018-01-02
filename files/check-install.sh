@@ -10,6 +10,7 @@ echo -n $(cat .current_release) > .current_release
 echo -n "/@@download[^\"]+" >> .current_release
 cat .dict_page | grep -oP -f .current_release | wget -q -i - -O /tmp/dictionary.otx
 unzip /tmp/dictionary.otx -d /usr/share/hunspell
+chmod +r /usr/share/hunspell/*
 
 git config --global core.quotepath false
 go get -u github.com/russross/blackfriday-tool

@@ -1,4 +1,5 @@
-# editor environment
-
-/.idea
-/*.iml
+_site
+.sass-cache
+.jekyll-metadata
+vendor
+.idea

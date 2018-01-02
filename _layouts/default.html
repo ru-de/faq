@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "ru" }}">
+<head>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-63204396-3');
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63204396-3"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default"></nav>
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation-panel">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="{{ "/" | relative_url }}"><span class="glyphicon glyphicon-home"></span></a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Полезная информация о жизни в Германии
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu pre-scrollable">
+{% for page in site.pages %}
+  {% if page.url contains 'pages/' %}
+          <li><a href="{{ page.url | relative_url }}">{{ page.title | xml_escape }}</a></li>
+  {% endif %}
+{% endfor %}
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <form class="navbar-form navbar-left" action="{{ "/search.html" | relative_url }}" method="get">
+          <div class="input-group">
+            <input type="text" class="form-control" id="search-box" placeholder="Search" name="query">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </li>
+      <li>
+        <a class="navbar-brand" href="https://github.com/ru-de/faq"><svg height="24" class="octicon octicon-mark-github fill-gray-light d-inline" aria-label="github-logo" viewBox="0 0 16 16" version="1.1" width="24" role="img"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+
+<div class="container">
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content | markdownify }}
+      </div>
+    </main>
+</div>
+
+</body>
+</html>

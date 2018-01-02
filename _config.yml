@@ -1,0 +1,12 @@
+include: ['pages']
+
+# Build settings
+markdown: kramdown
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
+
+plugins:
+#  - jekyll-feed
+
+baseurl: /faq

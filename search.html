@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<ul id="search-results"></ul>
+
+<script>
+  window.store = {
+    {% for page in site.pages %}
+      {% if page.url contains 'pages/' %}
+      "{{ page.url | slugify }}": {
+        "title": "{{ page.title | xml_escape }}",
+        "author": "{{ page.author | xml_escape }}",
+        "category": "{{ page.category | xml_escape }}",
+        "content": {{ page.content | strip_html | strip_newlines | jsonify }},
+        "url": "{{ page.url | relative_url }}"
+      }
+      {% unless forloop.last %},{% endunless %}
+      {% endif %}
+    {% endfor %}
+  };
+
+  var assetsUrl = "{{ '/assets' | relative_url }}";
+</script>
+<script src="{{ "assets/require.js" | relative_url }}"></script>
+<script src="{{ "assets/search.js" | relative_url }}"></script>

@@ -8,7 +8,8 @@ curl -s https://extensions.libreoffice.org/extensions/russian-spellcheck-diction
 cat .dict_page | grep -oP "<a href.+title=\"Current release for the project\"" | grep -oP "https://extensions.libreoffice.org/extensions/russian-spellcheck-dictionary.-based-on-works-of-aot-group/[^\"]+" > .current_release
 echo -n $(cat .current_release) > .current_release
 echo -n "/@@download[^\"]+" >> .current_release
-cat .dict_page | grep -oP -f .current_release | wget -q -i - -O dictionary.otx
-unzip dictionary.otx
+cat .dict_page | grep -oP -f .current_release | wget -q -i - -O /tmp/dictionary.otx
+unzip /tmp/dictionary.otx -d /usr/share/hunspell
+
 git config --global core.quotepath false
 go get -u github.com/russross/blackfriday-tool

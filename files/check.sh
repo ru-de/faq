@@ -1,24 +1,24 @@
 #!/bin/bash
 
-set -e
-
 DIR=`dirname $0`
 EXIT_CODE=0
 
-cat $DIR/dictionary.dic | tr '\n' '|' | sed 's/\x27/\\x27/g' > dictionary_processed
+cat $DIR/dictionary.dic | tr '\n' '|' | sed 's/\x27/\\x27/g' > /tmp/dictionary_processed
 
-DICT_REGEXP=$(cat dictionary_processed | sed 's/|/[^[:alnum:]]\\|/g')
-DICT_REGEXP_EOF=$(cat dictionary_processed | sed 's/|$//g' | sed 's/|/$\\|/g')
+DICT_REGEXP=$(cat /tmp/dictionary_processed | sed 's/|/[^[:alnum:]]\\|/g')
+DICT_REGEXP_EOF=$(cat /tmp/dictionary_processed | sed 's/|$//g' | sed 's/|/$\\|/g')
 DICT_REGEXP="$DICT_REGEXP$DICT_REGEXP_EOF$"
 
-git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > changed_files
+git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
-go build -o $DIR/spell-checker $DIR/spell-checker.go
+echo "/root/ru-de-faq/АБХ.md" > /tmp/changed_files
+
+go build -o /tmp/spell-checker $DIR/spell-checker.go
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
 
-    OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,ru_RU,de_DE,en_US | $DIR/spell-checker);
+    OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -p /tmp/ -d russian-aot,ru_RU,de_DE,en_US | /tmp/spell-checker);
     OUTPUT_EXIT_CODE=$?
 
     if [ $OUTPUT_EXIT_CODE -ne 0 ]; then
@@ -29,16 +29,13 @@ while read FILE; do
         echo "пройдена";
     fi
 
-    echo
-done < changed_files
+    rm -f /tmp/file.html
+    blackfriday-tool $FILE /tmp/file.html
 
-find *.md -exec blackfriday-tool {} {}.html \;
+    if [ -f "/tmp/file.html" ]; then
+        grep -Po '(?<=href=")http[^"]*(?=")' "/tmp/file.html" > /tmp/links
 
-while read FILE; do
-    if [ -f "${FILE}.html" ]; then
-        grep -Po '(?<=href=")http[^"]*(?=")' "${FILE}.html" > links
-
-        if [ -s links ]; then
+        if [ -s /tmp/links ]; then
             echo "Проверка файла $FILE на недоступные ссылки... ";
 
             while read LINK; do
@@ -57,11 +54,13 @@ while read FILE; do
                     echo
                 fi
 
-            done < links
+            done < /tmp/links
 
             echo
         fi
     fi
-done < changed_files
+
+    echo
+done < /tmp/changed_files
 
 exit $EXIT_CODE

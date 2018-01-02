@@ -18,7 +18,7 @@ go build -o /tmp/spell-checker $DIR/spell-checker.go
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
 
-    OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -p /tmp/ -d russian-aot,ru_RU,de_DE,en_US | /tmp/spell-checker);
+    OUTPUT=$(cat "$FILE" | sed "s/$DICT_REGEXP//gi" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | hunspell -d russian-aot,ru_RU,de_DE,en_US | /tmp/spell-checker);
     OUTPUT_EXIT_CODE=$?
 
     if [ $OUTPUT_EXIT_CODE -ne 0 ]; then

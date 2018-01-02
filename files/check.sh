@@ -11,11 +11,9 @@ DICT_REGEXP="$DICT_REGEXP$DICT_REGEXP_EOF$"
 
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
-echo "/root/ru-de-faq/АБХ.md" > /tmp/changed_files
+echo "АБХ.md" > /tmp/changed_files
 
 go build -o /tmp/spell-checker $DIR/spell-checker.go
-
-hunspell -D
 
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";

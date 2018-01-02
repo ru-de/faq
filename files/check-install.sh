@@ -9,8 +9,24 @@ cat .dict_page | grep -oP "<a href.+title=\"Current release for the project\"" |
 echo -n $(cat .current_release) > .current_release
 echo -n "/@@download[^\"]+" >> .current_release
 cat .dict_page | grep -oP -f .current_release | wget -q -i - -O /tmp/dictionary.otx
-unzip /tmp/dictionary.otx -d /usr/share/hunspell
+unzip /tmp/dictionary.otx
+cp /tmp/*.dic /usr/share/hunspell
+cp /tmp/*.aff /usr/share/hunspell
 chmod +r /usr/share/hunspell/*
+
+dicList=""russian-aot" "ru_RU""
+for dic in $dicList
+    do
+        cat /usr/share/hunspell/$dic.dic | iconv --from KOI8-R --to UTF-8 > /usr/share/hunspell/$dic-utf8.dic
+        cat /usr/share/hunspell/$dic.aff | iconv --from KOI8-R --to UTF-8 | sed 's/SET KOI8-R/SET UTF-8/' > /usr/share/hunspell/$dic-utf8.aff
+done
+
+dicList=""de_DE" "en_US""
+for dic in $dicList
+    do
+        cat /usr/share/hunspell/$dic.dic | iconv --from ISO8859-1 --to UTF-8 > /usr/share/hunspell/$dic-utf8.dic
+        cat /usr/share/hunspell/$dic.aff | iconv --from ISO8859-1 --to UTF-8 | sed 's/SET ISO8859-1/SET UTF-8/' > /usr/share/hunspell/$dic-utf8.aff
+done
 
 git config --global core.quotepath false
 go get -u github.com/russross/blackfriday-tool

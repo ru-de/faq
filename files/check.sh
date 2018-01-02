@@ -11,8 +11,6 @@ DICT_REGEXP="$DICT_REGEXP$DICT_REGEXP_EOF$"
 
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
-echo "Авто.md" >> /tmp/changed_files
-
 go build -o /tmp/spell-checker $DIR/spell-checker.go
 
 while read FILE; do

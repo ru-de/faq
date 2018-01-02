@@ -14,7 +14,7 @@ cp /tmp/*.dic /usr/share/hunspell
 cp /tmp/*.aff /usr/share/hunspell
 chmod +r /usr/share/hunspell/*
 
-dicList=""russian-aot" "ru_RU""
+dicList=""russian-aot""
 for dic in $dicList
     do
         cat /usr/share/hunspell/$dic.dic | iconv --from KOI8-R --to UTF-8 > /usr/share/hunspell/$dic-utf8.dic

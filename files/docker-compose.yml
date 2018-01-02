@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ru_de_checker
-    tty: true
+    user: travis
+    command: bash -c "env && cd /home/travis/ru-de-faq && sh files/check.sh"
     volumes:
-      - ../.:/root/ru-de-faq
+      - ../.:/home/travis/ru-de-faq

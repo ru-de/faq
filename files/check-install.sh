@@ -9,7 +9,7 @@ cat .dict_page | grep -oP "<a href.+title=\"Current release for the project\"" |
 echo -n $(cat .current_release) > .current_release
 echo -n "/@@download[^\"]+" >> .current_release
 cat .dict_page | grep -oP -f .current_release | wget -q -i - -O /tmp/dictionary.otx
-unzip /tmp/dictionary.otx
+unzip /tmp/dictionary.otx -d /tmp
 cp /tmp/*.dic /usr/share/hunspell
 cp /tmp/*.aff /usr/share/hunspell
 chmod +r /usr/share/hunspell/*

@@ -15,6 +15,8 @@ echo "/root/ru-de-faq/АБХ.md" > /tmp/changed_files
 
 go build -o /tmp/spell-checker $DIR/spell-checker.go
 
+hunspell -D
+
 while read FILE; do
     echo -n "Проверка файла $FILE на опечатки... ";
 

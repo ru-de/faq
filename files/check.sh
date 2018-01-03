@@ -11,8 +11,6 @@ sudo mv /tmp/dictionary.* /usr/share/hunspell
 
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
-find *.md > /tmp/changed_files
-
 go build -o /tmp/spell-checker $DIR/spell-checker.go
 
 while read FILE; do

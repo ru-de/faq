@@ -3,7 +3,7 @@
 DIR=`dirname $0`
 EXIT_CODE=0
 
-git config core.quotepath false
+git config --global core.quotepath false
 
 (cat $DIR/dictionary.dic; echo) | sed '/^$/d' | wc -l > /tmp/dictionary.dic
 (cat $DIR/dictionary.dic; echo) | sed '/^$/d' >> /tmp/dictionary.dic

@@ -28,5 +28,4 @@ for dic in $dicList
         cat /usr/share/hunspell/$dic.aff | iconv --from ISO8859-1 --to UTF-8 | sed 's/SET ISO8859-1/SET UTF-8/' > /usr/share/hunspell/$dic-utf8.aff
 done
 
-git config --global core.quotepath false
 go get -u github.com/russross/blackfriday-tool

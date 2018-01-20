@@ -1,6 +1,8 @@
 language: go
 
 sudo: required
+dist: trusty
+group: deprecated-2017Q4
 
 before_install:
   - export GOPATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace:$GOPATH"

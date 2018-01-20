@@ -13,8 +13,7 @@ script:
   - sh .travis/check.sh
   
 after_success:
-  - sort files/dictionary.dic > files/dictionary.tmp && mv files/dictionary.tmp files/dictionary.dic
-  - sh .travis/push.sh
+  - sort files/dictionary.dic -C || (sort files/dictionary.dic -o files/dictionary.dic -f && sh .travis/push.sh)
 
 notifications:
   email: false

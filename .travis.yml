@@ -13,7 +13,7 @@ script:
   - sh .travis/check.sh
   
 after_success:
-  - sort files/dictionary.dic -C || (sort files/dictionary.dic -o files/dictionary.dic -f && sh .travis/push.sh)
+  - LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -C || (LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f && sh .travis/push.sh)
 
 notifications:
   email: false

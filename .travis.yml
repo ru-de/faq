@@ -7,13 +7,13 @@ group: deprecated-2017Q4
 before_install:
   - export GOPATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace:$GOPATH"
   - export PATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace/bin:$PATH"
-  - sudo env PATH=$PATH GOPATH=$GOPATH sh .travis/check-install.sh
+  - sudo env PATH=$PATH GOPATH=$GOPATH sh files/check-install.sh
 
 script:
   - sh .travis/check.sh
   
 after_success:
-  - LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -C || (LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f && sh .travis/push.sh)
+  - LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -C || (LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f && sh files/push.sh)
 
 notifications:
   email: false

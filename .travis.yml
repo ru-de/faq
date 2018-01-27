@@ -10,7 +10,7 @@ before_install:
   - sudo env PATH=$PATH GOPATH=$GOPATH sh files/check-install.sh
 
 script:
-  - sh .travis/check.sh
+  - sh files/check.sh
   
 after_success:
   - LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -C || (LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f && sh files/push.sh)

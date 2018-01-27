@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=files
+DIR=`dirname $0`
 EXIT_CODE=0
 
 git config --global core.quotepath false

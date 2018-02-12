@@ -12,7 +12,7 @@ commit_files() {
 }
 
 upload_files() {
-  git remote add origin-master https://${GH_TOKEN}@github.com/andreyors/de_faq.git > /dev/null 2>&1
+  git remote add origin-master https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git > /dev/null 2>&1
   git push --quiet --set-upstream origin-master master
 }
 

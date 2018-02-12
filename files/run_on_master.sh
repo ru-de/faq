@@ -9,10 +9,10 @@ skip() {
 }
 
 [ "${TRAVIS_PULL_REQUEST}" = "false" ] || \
-	skip "Not running master-only script for pull-requests."
+    skip "Not running master-only script for pull-requests."
 
 [ "${TRAVIS_BRANCH}" = "master" ] || \
-	skip "Running master-only for updates on 'master' branch (current: ${TRAVIS_BRANCH})."
+    skip "Running master-only for updates on 'master' branch (current: ${TRAVIS_BRANCH})."
 
 [ "${TRAVIS_REPO_SLUG}" = "ru-de/faq" ] || \
     skip "Running master-only for updater on main repo (current: ${TRAVIS_REPO_SLUG})."

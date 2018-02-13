@@ -34,7 +34,7 @@ LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f
 
 if ! git diff --quiet; then
 	git commit -q -am "Travis #$TRAVIS_BUILD_NUMBER: dictionary rearrangement"
-	git push upstream HEAD:master
+	git push -q upstream HEAD:master
 	echo "Dictionary was rearranged"
 fi
 
@@ -43,6 +43,6 @@ bash update.sh > /dev/null 2>&1
 
 if ! git diff --quiet; then
 	git commit -q -am "Travis #$TRAVIS_BUILD_NUMBER: sync github pages"
-	git push upstream HEAD:gh-pages
+	git push -q upstream HEAD:gh-pages
 	echo "Github pages was updated"
 fi

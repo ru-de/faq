@@ -4,28 +4,45 @@ set -e
 
 skip() {
 	echo "$@" 1>&2
-	echo "Exiting..." 1>&2
 	exit 0
 }
 
+
 [ "${TRAVIS_COMMIT_MESSAGE}" == "${TRAVIS_COMMIT_MESSAGE/Travis build/}" ] || \
-    skip "Skip for travis updates."
+	skip "Skipped... because this is travis autocommit."
 
 [ "${TRAVIS_PULL_REQUEST}" = "false" ] || \
-    skip "Not running master-only script for pull-requests."
+	skip "Skipped... because this is pull request."
 
 [ "${TRAVIS_BRANCH}" = "master" ] || \
-    skip "Running master-only for updates on 'master' branch (current: ${TRAVIS_BRANCH})."
+	skip "Skipped... because this is not a master branch (current: ${TRAVIS_BRANCH})."
 
 [ "${TRAVIS_REPO_SLUG}" = "ru-de/faq" ] || \
-    skip "Running master-only for updater on main repo (current: ${TRAVIS_REPO_SLUG})."
+	skip "Skipped... because this is not an original repository (current: ${TRAVIS_REPO_SLUG})."
 
 [ "${GH_TOKEN+set}" = set ] || \
-    skip "GitHub access token not available, skipping dict check."
+	skip "Skipped... GitHub access token not available"
 
-dict_check() {
-    LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -C || \
-    (LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f && bash files/push.sh)
-}
+git config --global user.email "travis@travis-ci.org"
+git config --global user.name "Travis CI"
 
-dict_check
+git remote add upstream https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git > /dev/null 2>&1
+git fetch upstream --depth=3
+git checkout upstream/master -q
+
+LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f
+
+if ! git diff --quiet; then
+	git commit -q --message "Travis #$TRAVIS_BUILD_NUMBER: dictionary rearrangement"
+	git push
+	echo "Dictionary was rearranged"
+fi
+
+git checkout upstream/gh-pages
+bash update.sh
+
+if ! git diff --quiet; then
+	git commit -q --message "Travis #$TRAVIS_BUILD_NUMBER: sync github pages"
+	git push
+	echo "Github pages was updated"
+fi

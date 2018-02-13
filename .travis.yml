@@ -11,11 +11,11 @@ git:
 install:
   - export GOPATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace:$GOPATH"
   - export PATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace/bin:$PATH"
-  - sudo env PATH=$PATH GOPATH=$GOPATH sh files/check-install.sh
+  - sudo env PATH=$PATH GOPATH=$GOPATH bash files/check-install.sh
 
 script:
-  - sh files/check.sh
-  - sh files/run_on_master.sh
+  - bash files/check.sh
+  - bash files/run_on_master.sh
 
 notifications:
   email: false

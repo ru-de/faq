@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -7,6 +7,9 @@ skip() {
 	echo "Exiting..." 1>&2
 	exit 0
 }
+
+[ "${TRAVIS_COMMIT_MESSAGE}" == "${TRAVIS_COMMIT_MESSAGE/Travis build/}" ] || \
+    skip "Skip for travis updates."
 
 [ "${TRAVIS_PULL_REQUEST}" = "false" ] || \
     skip "Not running master-only script for pull-requests."
@@ -22,7 +25,7 @@ skip() {
 
 dict_check() {
     LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -C || \
-    (LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f && sh files/push.sh)
+    (LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f && bash files/push.sh)
 }
 
 dict_check

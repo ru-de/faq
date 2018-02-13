@@ -8,7 +8,7 @@ skip() {
 }
 
 
-[ "${TRAVIS_COMMIT_MESSAGE}" == "${TRAVIS_COMMIT_MESSAGE/Travis build/}" ] || \
+[ "${TRAVIS_COMMIT_MESSAGE}" == "${TRAVIS_COMMIT_MESSAGE/Travis #/}" ] || \
 	skip "Skipped... because this is travis autocommit."
 
 [ "${TRAVIS_PULL_REQUEST}" = "false" ] || \

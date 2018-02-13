@@ -8,7 +8,7 @@ git clone https://github.com/ru-de/faq.git $DE_FAQ_DIR --depth=1
 
 rm $DE_FAQ_DIR/CONTRIBUTING.md
 
-(echo "---\nlayout: default\n---\n"; cat "$DE_FAQ_DIR/README.md") > index.md
+(echo -e "---\nlayout: default\n---\n"; cat "$DE_FAQ_DIR/README.md") > index.md
 rm $DE_FAQ_DIR/README.md
 
 mkdir $DE_FAQ_DIR/tmp_pages

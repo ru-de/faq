@@ -27,14 +27,14 @@ git config --global user.email "travis@travis-ci.org"
 git config --global user.name "Travis CI"
 
 git remote add upstream https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git > /dev/null 2>&1
-git fetch upstream --depth=3
+git fetch upstream --depth=3 -q
 git checkout upstream/master -q
 
 LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f
 
 if ! git diff --quiet; then
 	git commit -q -am "Travis #$TRAVIS_BUILD_NUMBER: dictionary rearrangement"
-	git push
+	git push upstream HEAD:master
 	echo "Dictionary was rearranged"
 fi
 
@@ -43,6 +43,6 @@ bash update.sh
 
 if ! git diff --quiet; then
 	git commit -q -am "Travis #$TRAVIS_BUILD_NUMBER: sync github pages"
-	git push
+	git push upstream HEAD:gh-pages
 	echo "Github pages was updated"
 fi

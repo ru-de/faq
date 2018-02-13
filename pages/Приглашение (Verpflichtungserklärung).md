@@ -1,4 +1,8 @@
----\ntitle: Приглашение (Verpflichtungserklärung)\nlayout: default\n---\n
+---
+title: Приглашение (Verpflichtungserklärung)
+layout: default
+---
+
 ## Страница услуги
 
 https://service.berlin.de/dienstleistung/120691/

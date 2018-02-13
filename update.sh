@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DE_FAQ_DIR=/tmp/de_faq
 
 rm -rf $DE_FAQ_DIR
@@ -14,7 +16,7 @@ mkdir $DE_FAQ_DIR/tmp_pages
 for file in $DE_FAQ_DIR/*.md; do
   bname=$(basename "$file")
   title=$(basename "$file" .md)
-  (echo "---\ntitle: $title\nlayout: default\n---\n"; cat "$file") > "$DE_FAQ_DIR/tmp_pages/$bname"
+  (echo -e "---\ntitle: $title\nlayout: default\n---\n"; cat "$file") > "$DE_FAQ_DIR/tmp_pages/$bname"
 done
 
 rm -rf pages

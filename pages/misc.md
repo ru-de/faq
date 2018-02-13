@@ -1,8 +1,4 @@
----
-title: misc
-layout: default
----
-
+---\ntitle: misc\nlayout: default\n---\n
 # Разное
 
 * Сервис, который облегчает расторжение договоров: https://www.aboalarm.de

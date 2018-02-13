@@ -6,4 +6,4 @@ ENV GOPATH "/home/travis/gopath"
 ENV GOROOT "/home/travis/.gimme/versions/go1.7.4.linux.amd64"
 ENV PATH "$GOPATH/bin:$GOROOT/bin:$PATH"
 COPY check-install.sh /tmp
-RUN sh /tmp/check-install.sh
+RUN bash /tmp/check-install.sh

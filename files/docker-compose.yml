@@ -1,0 +1,12 @@
+version: "3.2"
+
+services:
+  ru_de_checker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ru_de_checker
+    user: travis
+    command: bash -l -c "cd /home/travis/ru-de-faq && bash files/check.sh"
+    volumes:
+      - ../.:/home/travis/ru-de-faq

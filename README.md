@@ -25,8 +25,9 @@
 Чат в Telegram:
 
 - Общий чат Германия: https://t.me/tractor_de
-- Берлин: https://t.me/berlinru 
-- Мюнхен: https://t.me/muenchentraktor 
+- Берлин: https://t.me/berlinru
+- Мюнхен: https://t.me/muenchentraktor
+- Франкфурт: https://t.me/mein_frankfurt
 
 Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
 

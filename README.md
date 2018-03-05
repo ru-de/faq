@@ -32,5 +32,3 @@
 Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
 
 Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/
-
-Wiki жителей Мюнхена: http://ponaehali.de/

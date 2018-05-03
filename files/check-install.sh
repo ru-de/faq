@@ -27,4 +27,7 @@ for dic in $dicList
         cat /usr/share/hunspell/$dic.aff | iconv --from ISO8859-1 --to UTF-8 | sed 's/SET ISO8859-1/SET UTF-8/' > /usr/share/hunspell/$dic-utf8.aff
 done
 
-go get -u github.com/russross/blackfriday-tool
+go get -u github.com/ewgRa/ci-utils/diff_liner/diff_liner
+go get -u github.com/ewgRa/ci-utils/hunspell_parser/hunspell_parser
+go get -u github.com/ewgRa/ci-utils/diff_liner/links_checker
+

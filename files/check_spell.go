@@ -14,9 +14,10 @@ func main() {
     prLiner := flag.String("pr-liner", "", "Pull request liner")
     hunspellParsedFile := flag.String("hunspell-parsed-file", "", "Hunspell parsed file name")
     file := flag.String("file", "", "Hunspell parsed file name")
+    commit := flag.String("commit", "", "Commit")
     flag.Parse()
 
-    if *prLiner == "" || *hunspellParsedFile == "" || *file == "" {
+    if *prLiner == "" || *hunspellParsedFile == "" || *file == "" || *commit == "" {
         flag.Usage()
         os.Exit(1)
     }
@@ -33,11 +34,10 @@ func main() {
         }
 
         body := fmt.Sprintf("Возможная ошибка в слове \"%s\", варианты правильного написания \"%s\". Если слово \"%s\" является правильным, добавьте его в files/dictionary.dic", resp.Word, resp.Alternative, resp.Word)
-        commitID := "FIXME XXX"
 
         comment := &github.PullRequestComment{
             Body: &body,
-            CommitID: &commitID,
+            CommitID: commit,
             Path: file,
             Position: &prLine,
         }

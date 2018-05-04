@@ -16,10 +16,11 @@ import (
 func main() {
     prLiner := flag.String("pr-liner", "", "Pull request liner")
     fileName := flag.String("file", "", "Hunspell parsed file name")
+    commit := flag.String("commit", "", "Commit")
     expectedCodesFile := flag.String("expected-codes", "", "Expected codes file name")
     flag.Parse()
 
-    if *prLiner == "" || *fileName == "" || *expectedCodesFile == "" {
+    if *prLiner == "" || *fileName == "" || *commit == "" || *expectedCodesFile == "" {
         flag.Usage()
         os.Exit(1)
     }
@@ -63,11 +64,10 @@ func main() {
             }
 
             body := fmt.Sprintf("Ссылка %s ... недоступна с кодом %v, ожидается %v. Если это ожидаемый ответ, внесите \"%v,%s\" в files/expected_codes.csv", link, respCode, expectedCodes, respCode, link)
-            commitID := "FIXME XXX"
 
             comment := &github.PullRequestComment{
                 Body: &body,
-                CommitID: &commitID,
+                CommitID: commit,
                 Path: fileName,
                 Position: &prLine,
             }

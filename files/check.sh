@@ -22,15 +22,16 @@ rm -f /tmp/comments.json
 touch /tmp/comments.json
 
 while read FILE; do
+    COMMIT=$(git log --pretty=format:"%H" -1 "$FILE");
     echo -n "Проверка изменений в файле $FILE на опечатки... ";
 
     cat "$FILE" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | sed "s/[(]files[^)]*[)]//g" | hunspell -d dictionary,russian-aot-utf8,ru_RU,de_DE-utf8,en_US-utf8 > /tmp/hunspell.out
     cat /tmp/hunspell.out | hunspell_parser > /tmp/hunspell_parsed.json
-    /tmp/check_spell -file "$FILE" -pr-liner /tmp/pr_liner.json -hunspell-parsed-file /tmp/hunspell_parsed.json >> /tmp/comments.json
+    /tmp/check_spell -file "$FILE" -commit=$COMMIT -pr-liner /tmp/pr_liner.json -hunspell-parsed-file /tmp/hunspell_parsed.json >> /tmp/comments.json
 
     echo -n "Проверка изменений в файле $FILE на недоступные ссылки... ";
 
-    /tmp/check_links -file "$FILE" -pr-liner /tmp/pr_liner.json -expected-codes files/expected_codes.csv >> /tmp/comments.json
+    /tmp/check_links -file "$FILE" -commit=$COMMIT -pr-liner /tmp/pr_liner.json -expected-codes files/expected_codes.csv >> /tmp/comments.json
 
     echo
 done < /tmp/changed_files

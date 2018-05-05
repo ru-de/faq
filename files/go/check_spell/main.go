@@ -45,11 +45,13 @@ func main() {
         })
     }
 
-    jsonData, err := json.Marshal(comments)
+    if len(comments) > 0 {
+        jsonData, err := json.Marshal(comments)
 
-    if err != nil {
-        panic(err)
+        if err != nil {
+            panic(err)
+        }
+
+        fmt.Println(string(jsonData))
     }
-
-    fmt.Println(string(jsonData))
 }

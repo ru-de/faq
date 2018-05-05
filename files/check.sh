@@ -4,9 +4,6 @@ DIR=`dirname $0`
 
 git config --global core.quotepath false
 
-go build -o /tmp/check_spell $DIR/check_spell.go
-go build -o /tmp/check_links $DIR/check_links.go
-
 (cat $DIR/dictionary.dic; echo) | sed '/^$/d' | wc -l > /tmp/dictionary.dic
 (cat $DIR/dictionary.dic; echo) | sed '/^$/d' >> /tmp/dictionary.dic
 

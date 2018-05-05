@@ -33,3 +33,12 @@ go get -u github.com/ewgRa/ci-utils/utils/hunspell_parser
 go get -u github.com/ewgRa/ci-utils/utils/github_comments_diff
 go get -u github.com/ewgRa/ci-utils/utils/github_comments_send
 
+mkdir $GOPATH/ci-scripts/check_spell
+cp $DIR/check_spell.go $GOPATH/ci-scripts/check_spell/check_spell.go
+go build -o /tmp/check_spell $GOPATH/ci-scripts/check_spell/check_spell.go
+
+mkdir $GOPATH/ci-scripts/check_links
+cp $DIR/check_links.go $GOPATH/ci-scripts/check_links/check_links.go
+
+go build -o /tmp/check_links $GOPATH/ci-scripts/check_links/check_links.go
+

@@ -35,6 +35,7 @@ OUTPUT=$(cat /tmp/comments.json | (! grep .));
 OUTPUT_EXIT_CODE=$?
 
 if [ $OUTPUT_EXIT_CODE -ne 0 ]; then
+    cat /tmp/send_comments.json
     github_comments_send -file /tmp/send_comments.json -repo $TRAVIS_REPO_SLUG -pr $TRAVIS_PULL_REQUEST
     EXIT_CODE=1
 fi

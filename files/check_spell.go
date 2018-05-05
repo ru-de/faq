@@ -3,8 +3,8 @@ package main
 import (
     "fmt"
     "os"
-    "github.com/ewgRa/ci-utils/diff_liner"
-    "github.com/ewgRa/ci-utils/hunspell_parser"
+    "github.com/ewgRa/ci-utils/src/diff_liner"
+    "github.com/ewgRa/ci-utils/src/hunspell_parser"
     "github.com/google/go-github/github"
     "flag"
     "encoding/json"
@@ -26,6 +26,8 @@ func main() {
 
     hunspellParsedResp := hunspell_parser.ReadHunspellParserResponse(*hunspellParsedFile)
 
+    var comments []*github.PullRequestComment
+
     for _, resp := range hunspellParsedResp {
         prLine := linerResp.GetDiffLine(*file, resp.Line)
 
@@ -33,21 +35,21 @@ func main() {
             continue
         }
 
-        body := fmt.Sprintf("Возможная ошибка в слове \"**%s**\".\\n Варианты правильного написания \"**%s**\".\\nЕсли слово \"%s\" является правильным, добавьте его в files/dictionary.dic", resp.Word, resp.Alternative, resp.Word)
+        body := fmt.Sprintf("Возможная ошибка в слове \"**%s**\".\n Варианты правильного написания \"**%s**\".\nЕсли слово \"%s\" является правильным, добавьте его в files/dictionary.dic", resp.Word, resp.Alternative, resp.Word)
 
-        comment := &github.PullRequestComment{
+        comments = append(comments, &github.PullRequestComment{
             Body: &body,
             CommitID: commit,
             Path: file,
             Position: &prLine,
-        }
-
-        jsonData, err := json.Marshal(comment)
-
-        if err != nil {
-            panic(err)
-        }
-
-        fmt.Println(string(jsonData))
+        })
     }
+
+    jsonData, err := json.Marshal(comments)
+
+    if err != nil {
+        panic(err)
+    }
+
+    fmt.Println(string(jsonData))
 }

@@ -6,8 +6,8 @@ import (
     "flag"
     "bufio"
     "regexp"
-    "github.com/ewgRa/ci-utils/diff_liner"
-    "github.com/ewgRa/ci-utils/links_checker"
+    "github.com/ewgRa/ci-utils/src/diff_liner"
+    "github.com/ewgRa/ci-utils/src/links_checker"
     "gopkg.in/russross/blackfriday.v2"
     "encoding/json"
     "github.com/google/go-github/github"
@@ -42,6 +42,8 @@ func main() {
 
     scanner := bufio.NewScanner(file)
 
+    var comments []*github.PullRequestComment
+
     for scanner.Scan() {
         line++
 
@@ -63,22 +65,14 @@ func main() {
                 continue
             }
 
-            body := fmt.Sprintf("Ссылка **%s** ... недоступна с кодом **%v**, ожидается **%v**.\\nЕсли это ожидаемый ответ, внесите \"%v,%s\" в files/expected_codes.csv", link, respCode, expectedCodes, respCode, link)
+            body := fmt.Sprintf("Ссылка **%s** ... недоступна с кодом **%v**, ожидается **%v**.\nЕсли это ожидаемый ответ, внесите \"%v,%s\" в files/expected_codes.csv", link, respCode, expectedCodes, respCode, link)
 
-            comment := &github.PullRequestComment{
+            comments = append(comments, &github.PullRequestComment{
                 Body: &body,
                 CommitID: commit,
                 Path: fileName,
                 Position: &prLine,
-            }
-
-            jsonData, err := json.Marshal(comment)
-
-            if err != nil {
-                panic(err)
-            }
-
-            fmt.Println(string(jsonData))
+            })
         }
     }
 
@@ -86,4 +80,12 @@ func main() {
         panic(err)
 
     }
+
+    jsonData, err := json.Marshal(comments)
+
+    if err != nil {
+        panic(err)
+    }
+
+    fmt.Println(string(jsonData))
 }

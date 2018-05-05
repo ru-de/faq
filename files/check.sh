@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -xe
+
 DIR=`dirname $0`
 
 git config --global core.quotepath false
@@ -27,17 +29,19 @@ while read FILE; do
     echo
 done < /tmp/changed_files
 
+jq -s '[.[][]]' /tmp/comments.json > /tmp/comments_array.json
+
 curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
 
-github_comments_diff -comments /tmp/comments.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
+github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
 
-OUTPUT=$(cat /tmp/comments.json | (! grep .));
+OUTPUT=$(cat /tmp/comments_array.json | (! grep .));
 EXIT_CODE=$?
 
 if [ $EXIT_CODE -ne 0 ]; then
     github_comments_send -file /tmp/send_comments.json -repo $TRAVIS_REPO_SLUG -pr $TRAVIS_PULL_REQUEST
 fi
 
-cat /tmp/comments.json
+cat /tmp/comments_array.json
 
 exit $EXIT_CODE

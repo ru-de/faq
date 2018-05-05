@@ -33,7 +33,7 @@ func main() {
             continue
         }
 
-        body := fmt.Sprintf("Возможная ошибка в слове \"%s\", варианты правильного написания \"%s\". Если слово \"%s\" является правильным, добавьте его в files/dictionary.dic", resp.Word, resp.Alternative, resp.Word)
+        body := fmt.Sprintf("Возможная ошибка в слове \"**%s**\".\\n Варианты правильного написания \"**%s**\".\\nЕсли слово \"%s\" является правильным, добавьте его в files/dictionary.dic", resp.Word, resp.Alternative, resp.Word)
 
         comment := &github.PullRequestComment{
             Body: &body,

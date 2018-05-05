@@ -36,11 +36,17 @@ while read FILE; do
     echo
 done < /tmp/changed_files
 
+# FIXME XXX: remove duplicated
+
 OUTPUT=$(cat /tmp/comments.json | (! grep .));
 OUTPUT_EXIT_CODE=$?
 
 if [ $OUTPUT_EXIT_CODE -ne 0 ]; then
-    # FIXME XXX: send to github
+    while read -r COMMENT; do
+        cat $COMMENT > /tmp/comment.json
+        curl -s -XPOST https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments?access_token=$GH_TOKEN -d @/tmp/comment.json > /tmp/git_answer.json
+    done < /tmp/comments.json
+
     EXIT_CODE=1
 fi
 

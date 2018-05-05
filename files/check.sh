@@ -4,6 +4,7 @@ DIR=`dirname $0`
 
 git config --global core.quotepath false
 
+go get $DIR/...
 go build -o /tmp/check_spell $DIR/check_spell.go
 go build -o /tmp/check_links $DIR/check_links.go
 

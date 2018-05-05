@@ -32,13 +32,12 @@ curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUES
 github_comments_diff -comments /tmp/comments.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
 
 OUTPUT=$(cat /tmp/comments.json | (! grep .));
-OUTPUT_EXIT_CODE=$?
+EXIT_CODE=$?
 
-if [ $OUTPUT_EXIT_CODE -ne 0 ]; then
-    cat /tmp/send_comments.json
-    echo $TRAVIS_REPO_SLUG $TRAVIS_PULL_REQUEST
+if [ $EXIT_CODE -ne 0 ]; then
     github_comments_send -file /tmp/send_comments.json -repo $TRAVIS_REPO_SLUG -pr $TRAVIS_PULL_REQUEST
-    EXIT_CODE=1
 fi
+
+cat /tmp/comments.json
 
 exit $EXIT_CODE

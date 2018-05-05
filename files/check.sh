@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -xe
-
 DIR=`dirname $0`
 
 git config --global core.quotepath false

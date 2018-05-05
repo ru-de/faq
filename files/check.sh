@@ -4,12 +4,6 @@ DIR=`dirname $0`
 
 git config --global core.quotepath false
 
-(cat $DIR/dictionary.dic; echo) | sed '/^$/d' | wc -l > /tmp/dictionary.dic
-(cat $DIR/dictionary.dic; echo) | sed '/^$/d' >> /tmp/dictionary.dic
-
-echo "SET UTF-8" >> /tmp/dictionary.aff
-sudo mv /tmp/dictionary.* /usr/share/hunspell
-
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
 curl -sH "Accept: application/vnd.github.v3.diff.json" https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST > /tmp/pr.diff

@@ -2,6 +2,8 @@
 
 set -xe
 
+DIR=`dirname $0`
+
 apt-get -yqq update && apt-get install -y hunspell hunspell-ru hunspell-en-us hunspell-de-de
 curl -s https://extensions.libreoffice.org/extensions/russian-spellcheck-dictionary.-based-on-works-of-aot-group > .dict_page
 cat .dict_page | grep -oP "<a href.+title=\"Current release for the project\"" | grep -oP "https://extensions.libreoffice.org/extensions/russian-spellcheck-dictionary.-based-on-works-of-aot-group/[^\"]+" > .current_release
@@ -33,12 +35,11 @@ go get -u github.com/ewgRa/ci-utils/utils/hunspell_parser
 go get -u github.com/ewgRa/ci-utils/utils/github_comments_diff
 go get -u github.com/ewgRa/ci-utils/utils/github_comments_send
 
-mkdir $GOPATH/ci-scripts/check_spell
-cp $DIR/check_spell.go $GOPATH/ci-scripts/check_spell/check_spell.go
-go build -o /tmp/check_spell $GOPATH/ci-scripts/check_spell/check_spell.go
+go build -o /tmp/check_spell $DIR/go/check_spell/main.go
+go build -o /tmp/check_links $DIR/go/check_links/main.go
 
-mkdir $GOPATH/ci-scripts/check_links
-cp $DIR/check_links.go $GOPATH/ci-scripts/check_links/check_links.go
+(cat $DIR/dictionary.dic; echo) | sed '/^$/d' | wc -l > /tmp/dictionary.dic
+(cat $DIR/dictionary.dic; echo) | sed '/^$/d' >> /tmp/dictionary.dic
 
-go build -o /tmp/check_links $GOPATH/ci-scripts/check_links/check_links.go
-
+echo "SET UTF-8" >> /tmp/dictionary.aff
+sudo mv /tmp/dictionary.* /usr/share/hunspell

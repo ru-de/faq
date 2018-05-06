@@ -14,8 +14,8 @@ install:
   - sudo env PATH=$PATH GOPATH=$GOPATH bash files/check-install.sh
 
 script:
-  - bash files/check.sh
   - bash files/run_on_master.sh
+  - bash files/check.sh
 
 notifications:
   email: false

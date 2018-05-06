@@ -33,7 +33,7 @@ curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUES
 
 github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
 
-OUTPUT=$(cat /tmp/comments_array.json | (! grep .));
+OUTPUT=$(cat /tmp/comments_array.json | grep "\[]");
 EXIT_CODE=$?
 
 if [ $EXIT_CODE -ne 0 ]; then

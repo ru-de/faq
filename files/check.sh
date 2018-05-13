@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+    echo "Skip, because not a PR"
+    exit 0
+fi
+
 DIR=`dirname $0`
 
 git config --global core.quotepath false
@@ -17,7 +22,6 @@ while read FILE; do
     echo "Проверка изменений в файле $FILE на опечатки... ";
 
     cat "$FILE" | sed 's/https\?:[^ ]*//g' | sed "s/[(][^)]*\.md[)]//g" | sed "s/[(]files[^)]*[)]//g" | hunspell -d dictionary,russian-aot-utf8,ru_RU,de_DE-utf8,en_US-utf8 > /tmp/hunspell.out
-    cat /tmp/hunspell.out
     cat /tmp/hunspell.out | hunspell_parser > /tmp/hunspell_parsed.json
     /tmp/check_spell -file "$FILE" -commit=$COMMIT -pr-liner /tmp/pr_liner.json -hunspell-parsed-file /tmp/hunspell_parsed.json >> /tmp/comments.json
 
@@ -35,7 +39,7 @@ cat /tmp/comments_array.json
 OUTPUT=$(cat /tmp/comments_array.json | grep "\[]");
 EXIT_CODE=$?
 
-if [ $EXIT_CODE -ne 0 ] && [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
+if [ $EXIT_CODE -ne 0 ]; then
     curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
 
     github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json

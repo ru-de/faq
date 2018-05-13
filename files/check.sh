@@ -29,6 +29,10 @@ done < /tmp/changed_files
 
 jq -s '[.[][]]' /tmp/comments.json > /tmp/comments_array.json
 
+cat /tmp/comments_array.json
+
+[ "${TRAVIS_PULL_REQUEST}" != "false" ] || exit 0
+
 curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
 
 github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
@@ -39,7 +43,5 @@ EXIT_CODE=$?
 if [ $EXIT_CODE -ne 0 ]; then
     github_comments_send -file /tmp/send_comments.json -repo $TRAVIS_REPO_SLUG -pr $TRAVIS_PULL_REQUEST
 fi
-
-cat /tmp/comments_array.json
 
 exit $EXIT_CODE

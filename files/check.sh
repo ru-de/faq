@@ -31,7 +31,7 @@ jq -s '[.[][]]' /tmp/comments.json > /tmp/comments_array.json
 
 cat /tmp/comments_array.json
 
-[ "${TRAVIS_PULL_REQUEST}" = "false" ] || exit 0
+[ "${TRAVIS_PULL_REQUEST}" != "false" ] || exit 0
 
 curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
 

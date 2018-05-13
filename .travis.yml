@@ -15,7 +15,7 @@ install:
 
 script:
   - bash files/run_on_master.sh
-  - git checkout $TRAVIS_COMMIT
+  - git checkout $TRAVIS_COMMIT -qf
   - bash files/check.sh
 
 notifications:

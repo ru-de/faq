@@ -42,8 +42,6 @@ EXIT_CODE=$?
 if [ $EXIT_CODE -ne 0 ]; then
     curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
 
-    cat /tmp/pr_comments.json
-
     github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
 
     curl -XPOST "https://github-api-bot.herokuapp.com/send_review?repo=$TRAVIS_REPO_SLUG&pr=$TRAVIS_PULL_REQUEST" -d @/tmp/send_comments.json

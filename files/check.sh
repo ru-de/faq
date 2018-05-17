@@ -44,7 +44,7 @@ if [ $EXIT_CODE -ne 0 ]; then
 
     github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
 
-    curl -XPOST "https://github-api-bot.herokuapp.com/send_review?repo=$TRAVIS_REPO_SLUG&pr=$TRAVIS_PULL_REQUEST&body=Спасибо за PR. Обратите внимание на результаты автоматической проверки орфографии и ссылок" -d @/tmp/send_comments.json
+    curl -XPOST "https://github-api-bot.herokuapp.com/send_review?repo=$TRAVIS_REPO_SLUG&pr=$TRAVIS_PULL_REQUEST&body=Спасибо%20за%20PR.%20Обратите%20внимание%20на%20результаты%20автоматической%20проверки%20орфографии%20и%20ссылок" -d @/tmp/send_comments.json
 fi
 
 exit $EXIT_CODE

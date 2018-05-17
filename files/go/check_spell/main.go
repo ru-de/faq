@@ -13,7 +13,7 @@ import (
 func main() {
     prLiner := flag.String("pr-liner", "", "Pull request liner")
     hunspellParsedFile := flag.String("hunspell-parsed-file", "", "Hunspell parsed file name")
-    file := flag.String("file", "", "Hunspell parsed file name")
+    file := flag.String("file", "", "File name that checked")
     commit := flag.String("commit", "", "Commit")
     flag.Parse()
 

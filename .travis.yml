@@ -14,8 +14,9 @@ install:
   - sudo env PATH=$PATH GOPATH=$GOPATH bash files/check-install.sh
 
 script:
+  - git branch ci_pull_request
   - bash files/run_on_master.sh
-  - git checkout $TRAVIS_COMMIT -qf
+  - git checkout ci_pull_request
   - bash files/check.sh
 
 notifications:

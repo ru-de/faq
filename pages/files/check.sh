@@ -36,15 +36,16 @@ jq -s '[.[][]]' /tmp/comments.json > /tmp/comments_array.json
 
 cat /tmp/comments_array.json
 
-OUTPUT=$(cat /tmp/comments_array.json | grep "\[]");
-EXIT_CODE=$?
+EXIT_CODE=0
 
-if [ $EXIT_CODE -ne 0 ]; then
+if [ "$(cat /tmp/comments_array.json)" != "[]" ]; then
     curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
 
     github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
 
     curl -XPOST "https://github-api-bot.herokuapp.com/send_review?repo=$TRAVIS_REPO_SLUG&pr=$TRAVIS_PULL_REQUEST&body=Спасибо%20за%20PR.%20Обратите%20внимание%20на%20результаты%20автоматической%20проверки%20орфографии%20и%20ссылок" -d @/tmp/send_comments.json
+
+    EXIT_CODE=1
 fi
 
 exit $EXIT_CODE

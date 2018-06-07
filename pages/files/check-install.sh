@@ -30,10 +30,10 @@ for dic in $dicList
 done
 
 go get ./...
-go get -u github.com/ewgRa/ci-utils/utils/diff_liner
-go get -u github.com/ewgRa/ci-utils/utils/hunspell_parser
-go get -u github.com/ewgRa/ci-utils/utils/github_comments_diff
-go get -u github.com/ewgRa/ci-utils/utils/github_comments_send
+go get -u github.com/ewgRa/ci-utils/cmd/diff_liner
+go get -u github.com/ewgRa/ci-utils/cmd/hunspell_parser
+go get -u github.com/ewgRa/ci-utils/cmd/github_comments_diff
+go get -u github.com/ewgRa/ci-utils/cmd/github_comments_send
 
 go build -o /tmp/check_spell $DIR/go/check_spell/main.go
 go build -o /tmp/check_links $DIR/go/check_links/main.go

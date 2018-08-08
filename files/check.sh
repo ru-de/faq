@@ -11,7 +11,7 @@ git config --global core.quotepath false
 
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
-curl -sH "Accept: application/vnd.github.v3.diff.json" https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST > /tmp/pr.diff
+curl -s https://github-api-bot.herokuapp.com/diff?repo=$TRAVIS_REPO_SLUG&pr=$TRAVIS_PULL_REQUEST > /tmp/pr.diff
 
 if [ "$?" != "0" ]; then
     echo "Can't get github pull request diff, probably rate limit? Try to restart CI build"
@@ -45,7 +45,7 @@ cat /tmp/comments_array.json
 EXIT_CODE=0
 
 if [ "$(cat /tmp/comments_array.json)" != "[]" ]; then
-    curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
+    curl -s https://github-api-bot.herokuapp.com/comments?repo=$TRAVIS_REPO_SLUG&pr=$TRAVIS_PULL_REQUEST > /tmp/pr_comments.json
 
     if [ "$?" != "0" ]; then
         echo "Can't get github comments, probably rate limit? Try to restart ci build"

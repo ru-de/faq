@@ -12,6 +12,12 @@ git config --global core.quotepath false
 git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
 curl -sH "Accept: application/vnd.github.v3.diff.json" https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST > /tmp/pr.diff
+
+if [ "$?" != "0" ]; then
+    echo "Can't get github pull request diff, probably rate limit?"
+    exit 1
+fi
+
 cat /tmp/pr.diff | diff_liner > /tmp/pr_liner.json
 
 rm -f /tmp/comments.json
@@ -40,6 +46,11 @@ EXIT_CODE=0
 
 if [ "$(cat /tmp/comments_array.json)" != "[]" ]; then
     curl -s https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST/comments > /tmp/pr_comments.json
+
+    if [ "$?" != "0" ]; then
+        echo "Can't get github comments, probably rate limit?"
+        exit 1
+    fi
 
     github_comments_diff -comments /tmp/comments_array.json -exists-comments /tmp/pr_comments.json > /tmp/send_comments.json
 

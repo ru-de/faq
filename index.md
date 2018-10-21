@@ -24,8 +24,6 @@ layout: default
 
 Чат в Slack: https://slack-files.com/T09S9JDU1-F0HHEG8PK-c9396c730a
 
-Чат в Discord: https://discord.gg/0lnsPWfUD129B0Ie
-
 Чат в Telegram:
 
 - Общий чат Германия: https://t.me/tractor_de

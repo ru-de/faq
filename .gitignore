@@ -3,7 +3,6 @@
 /.idea
 /*.iml
 /node_modules
-/yarn.lock
 
 # build-related
 .current_release

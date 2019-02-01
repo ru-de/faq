@@ -30,6 +30,7 @@ layout: default
 - Берлин: https://t.me/berlinru
 - Мюнхен: https://t.me/muenchentraktor
 - Франкфурт: https://t.me/mein_frankfurt
+- Гамбург: https://t.me/hamburgru
 
 Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
 

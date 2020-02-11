@@ -18,7 +18,7 @@
 
 Чат в Skype: http://bit.ly/berlin-ru-it-chat
 
-Чат в Slack: http://berlin-ru.herokuapp.com/
+Чат в Slack: berlinru.slack.com, чтобы получить инвайт заполните форму здесь berlin-ru.herokuapp.com
 
 Чат в Telegram:
 

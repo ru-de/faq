@@ -6,10 +6,9 @@ DIR=`dirname $0`
 
 apt-get -yqq update && apt-get install -y hunspell hunspell-ru hunspell-en-us hunspell-de-de jq
 curl -s https://extensions.libreoffice.org/extensions/russian-spellcheck-dictionary.-based-on-works-of-aot-group > .dict_page
-cat .dict_page | grep -oP "<a href.+title=\"Current release for the project\"" | grep -oP "https://extensions.libreoffice.org/extensions/russian-spellcheck-dictionary.-based-on-works-of-aot-group/[^\"]+" > .current_release
-echo -n $(cat .current_release) > .current_release
-echo -n "/@@download[^\"]+" >> .current_release
-cat .dict_page | grep -oP -f .current_release | wget -q -i - -O /tmp/dictionary.otx
+echo -n "https://extensions.libreoffice.org" > .current_release
+cat .dict_page | grep -ozP '<li class="releaseRow">(\n|.)*?</li>' | grep -zoP -m1 'href=".*?">Download' | sed 's/href="//' | sed 's/">Download//' >> .current_release
+cat .current_release | wget -q -i - -O /tmp/dictionary.otx
 unzip /tmp/dictionary.otx -d /tmp
 cp /tmp/*.dic /usr/share/hunspell
 cp /tmp/*.aff /usr/share/hunspell

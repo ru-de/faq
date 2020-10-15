@@ -8,6 +8,8 @@ apt-get -yqq update && apt-get install -y hunspell hunspell-ru hunspell-en-us hu
 curl -s https://extensions.libreoffice.org/en/extensions/show/russian-spellcheck-dictionary > .dict_page
 wc -l .dict_page
 echo -n "https://extensions.libreoffice.org" > .current_release
+cat .dict_page | grep -ozP '<li class="releaseRow">(\n|.)*?</li>'
+cat .dict_page | grep -ozP '<li class="releaseRow">(\n|.)*?</li>' | grep -zoP -m1 'href=".*?">Download'
 cat .dict_page | grep -ozP '<li class="releaseRow">(\n|.)*?</li>' | grep -zoP -m1 'href=".*?">Download' | sed 's/href="//' | sed 's/">Download//' >> .current_release
 cat .current_release
 cat .current_release | wget -q -i - -O /tmp/dictionary.otx

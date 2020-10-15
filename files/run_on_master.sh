@@ -40,6 +40,7 @@ fi
 
 git checkout upstream/gh-pages
 bash update.sh > /dev/null 2>&1
+git add .
 
 if ! git diff --quiet; then
 	git commit -q -am "Travis #$TRAVIS_BUILD_NUMBER: sync github pages"

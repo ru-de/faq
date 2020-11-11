@@ -13,8 +13,6 @@ install:
   - sudo env PATH=$PATH GOPATH=$GOPATH bash files/check-install.sh
 
 script:
-  - git branch ci_pull_request
-  - git checkout ci_pull_request
   - bash files/check.sh
 
 notifications:

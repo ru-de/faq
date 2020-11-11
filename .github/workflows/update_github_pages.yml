@@ -26,4 +26,4 @@ jobs:
           git checkout gh-pages
           bash update.sh > /dev/null 2>&1
           git add pages
-          ! git diff HEAD --quiet && git commit -q -am "sync github pages" && git push
+          if ! git diff HEAD --quiet; then git commit -q -am "sync github pages" && git push; fi

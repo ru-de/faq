@@ -1,0 +1,24 @@
+name: Update github pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update_github_pages:
+    if: github.repository == 'ru-de/faq'
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+      - name: update
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "Github Actions"
+          git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin gh-pages
+          git checkout gh-pages
+          bash update.sh > /dev/null 2>&1
+          git add pages
+          if ! git diff HEAD --quiet; then git commit -q -am "sync github pages" && git push; fi

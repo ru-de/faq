@@ -22,3 +22,8 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "Github Actions"
+          git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin gh-pages
+          git checkout gh-pages
+          bash update.sh > /dev/null 2>&1
+          git add pages
+          ! git diff HEAD --quiet && git commit -q -am "sync github pages" && git push

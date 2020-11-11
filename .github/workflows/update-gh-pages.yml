@@ -23,8 +23,3 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "Github Actions"
-          git checkout gh-actions
-          git fetch origin gh-actions-test
-          git checkout gh-actions-test
-          git merge gh-actions
-          git push

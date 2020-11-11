@@ -1,0 +1,20 @@
+name: Sort dictionary file
+
+on:
+  push:
+    branches:
+      - master
+      - gh-actions
+
+jobs:
+  update:
+    if: github.repository == 'ru-de/faq'
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: sort
+        run: |
+            LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f
+            ! git diff --quiet && git commit -q -am "dictionary rearrangement" && git push

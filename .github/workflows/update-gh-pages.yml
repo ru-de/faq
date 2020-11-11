@@ -8,6 +8,7 @@ on:
 
 jobs:
   update:
+    if: github.repository == ‘ru-de/faq’
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2

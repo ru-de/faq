@@ -16,5 +16,7 @@ jobs:
           fetch-depth: 1
       - name: sort
         run: |
+            git config --global user.email "actions@github.com"
+            git config --global user.name "Github Actions"
             LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f
             ! git diff --quiet && git commit -q -am "dictionary rearrangement" && git push

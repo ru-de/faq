@@ -1,4 +1,4 @@
-name: Sort dictionary file
+name: Sort dictionary
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - gh-actions
 
 jobs:
-  update:
+  sort_dictionary:
     if: github.repository == 'ru-de/faq'
     runs-on: ubuntu-18.04
     steps:

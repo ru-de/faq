@@ -2,6 +2,7 @@
 
 set -xe
 
+PWD=`pwd`
 DIR=`dirname $0`
 
 apt-get -yqq update && apt-get install -y hunspell hunspell-ru hunspell-en-us hunspell-de-de jq
@@ -42,4 +43,5 @@ go get -u github.com/ewgRa/ci-utils/cmd/github_comments_send
 cd $DIR/go
 go build -o /tmp/check_spell check_spell/main.go
 go build -o /tmp/check_links check_links/main.go
-cd ..
+cd $PWD
+pwd

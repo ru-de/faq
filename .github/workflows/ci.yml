@@ -20,4 +20,5 @@ jobs:
           sudo bash files/check-install.sh
       - name: Check spell and dead links
         run: |
-           true
+          pwd
+          true

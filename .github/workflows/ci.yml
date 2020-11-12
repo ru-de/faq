@@ -17,7 +17,7 @@ jobs:
           go-version: '1.14.1'
       - name: Install utils
         run: |
-          bash files/check-install.sh
+          sudo bash files/check-install.sh
       - name: Check spell and dead links
         run: |
            true

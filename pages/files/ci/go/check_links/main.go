@@ -2,13 +2,13 @@ package main
 
 import (
     "fmt"
+    "github.com/russross/blackfriday/v2"
     "os"
     "flag"
     "bufio"
     "regexp"
     "github.com/ewgRa/ci-utils/src/diff_liner"
     "github.com/ewgRa/ci-utils/src/links_checker"
-    "gopkg.in/russross/blackfriday.v2"
     "encoding/json"
     "github.com/google/go-github/github"
 )
@@ -65,7 +65,7 @@ func main() {
                 continue
             }
 
-            body := fmt.Sprintf("Ссылка **%s** ... недоступна с кодом **%v**, ожидается **%v**.\nЕсли это ожидаемый ответ, внесите \"%v,%s\" в files/expected_codes.csv", link, respCode, expectedCodes, respCode, link)
+            body := fmt.Sprintf("Ссылка **%s** ... недоступна с кодом **%v**, ожидается **%v**.\nЕсли это ожидаемый ответ, внесите \"%v,%s\" в files/ci/expected_codes.csv", link, respCode, expectedCodes, respCode, link)
 
             comments = append(comments, &github.PullRequestComment{
                 Body: &body,

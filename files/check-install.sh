@@ -43,5 +43,7 @@ go get -u github.com/ewgRa/ci-utils/cmd/github_comments_send
 cd $DIR/go
 go build -o /tmp/check_spell check_spell/main.go
 go build -o /tmp/check_links check_links/main.go
+
 cd $PWD
+echo $PWD
 pwd

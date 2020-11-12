@@ -2,13 +2,13 @@ package main
 
 import (
     "fmt"
+    "github.com/russross/blackfriday/v2"
     "os"
     "flag"
     "bufio"
     "regexp"
     "github.com/ewgRa/ci-utils/src/diff_liner"
     "github.com/ewgRa/ci-utils/src/links_checker"
-    "github.com/russross/blackfriday/v2"
     "encoding/json"
     "github.com/google/go-github/github"
 )

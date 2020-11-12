@@ -17,4 +17,8 @@ jobs:
           go-version: '1.14.1'
       - name: Check spell and dead links
         run: |
-           false
+          touch a
+          echo "foo" >> a
+      - name: Check spell and dead links
+        run: |
+           cat a

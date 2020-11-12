@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER Evgenii Sokolov <e.sokolov@sevensenders.com>
+MAINTAINER Evgenii Sokolov <ewgraf@gmail.com>
 
 RUN apt-get -yqq update && apt-get install -y wget git locales
 RUN cd /tmp && wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz

@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ru_de_checker
-    command: bash -l -c "cd /home/ru-de-faq && bash files/check.sh"
+    command: bash -l -c "cd /home/ru-de-faq && bash files/ci/check.sh"
     volumes:
       - ../../.:/home/ru-de-faq

@@ -2,7 +2,7 @@
 
 set -xe
 
-PWD=`pwd`
+PWD_DIR=`pwd`
 DIR=`dirname $0`
 
 apt-get -yqq update && apt-get install -y hunspell hunspell-ru hunspell-en-us hunspell-de-de jq
@@ -44,6 +44,7 @@ cd $DIR/go
 go build -o /tmp/check_spell check_spell/main.go
 go build -o /tmp/check_links check_links/main.go
 
-cd $PWD
-echo $PWD
+cd $PWD_DIR
+echo $PWD_DIR
 pwd
+ls

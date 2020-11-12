@@ -30,7 +30,7 @@ while read FILE; do
 
     echo "Проверка изменений в файле $FILE на недоступные ссылки... ";
 
-    /tmp/check_links -file "$FILE" -commit=$COMMIT -pr-liner /tmp/pr_liner.json -expected-codes files/expected_codes.csv >> /tmp/comments.json
+    /tmp/check_links -file "$FILE" -commit=$COMMIT -pr-liner /tmp/pr_liner.json -expected-codes files/ci/expected_codes.csv >> /tmp/comments.json
 
     echo
 done < /tmp/changed_files

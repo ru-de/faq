@@ -65,7 +65,7 @@ func main() {
                 continue
             }
 
-            body := fmt.Sprintf("Ссылка **%s** ... недоступна с кодом **%v**, ожидается **%v**.\nЕсли это ожидаемый ответ, внесите \"%v,%s\" в files/expected_codes.csv", link, respCode, expectedCodes, respCode, link)
+            body := fmt.Sprintf("Ссылка **%s** ... недоступна с кодом **%v**, ожидается **%v**.\nЕсли это ожидаемый ответ, внесите \"%v,%s\" в files/ci/expected_codes.csv", link, respCode, expectedCodes, respCode, link)
 
             comments = append(comments, &github.PullRequestComment{
                 Body: &body,

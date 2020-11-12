@@ -39,5 +39,7 @@ go get -u github.com/ewgRa/ci-utils/cmd/hunspell_parser
 go get -u github.com/ewgRa/ci-utils/cmd/github_comments_diff
 go get -u github.com/ewgRa/ci-utils/cmd/github_comments_send
 
-go build -o /tmp/check_spell $DIR/go/check_spell/main.go
-go build -o /tmp/check_links $DIR/go/check_links/main.go
+cd $DIR/go
+go build -o /tmp/check_spell check_spell/main.go
+cd go && go build -o /tmp/check_links check_links/main.go
+cd $DIR

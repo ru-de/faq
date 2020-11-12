@@ -20,4 +20,4 @@ jobs:
           sudo bash files/ci/check-install.sh
       - name: Check spell and dead links
         run: |
-          bash files/check.sh
+          bash files/ci/check.sh

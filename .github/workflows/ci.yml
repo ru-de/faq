@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 1
       - name: Install utils
         run: |
-          sudo bash files/check-install.sh
+          sudo bash files/ci/check-install.sh
       - name: Check spell and dead links
         run: |
           pwd

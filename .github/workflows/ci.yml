@@ -23,8 +23,7 @@ jobs:
           path: src/github.com/${{ github.repository }}
       - name: Install utils
         run: |
-          go env
-          pwd
+          cd src/github.com/${{ github.repository }}
           sudo bash files/check-install.sh
       - name: Check spell and dead links
         run: |

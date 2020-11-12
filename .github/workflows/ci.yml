@@ -1,0 +1,23 @@
+name: Continious integration
+
+on:
+  pull_request:
+
+jobs:
+  spell_and_dead_links_checks:
+    if: github.repository == 'ru-de/faq'
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/setup-go@v2
+        with:
+          stable: 'false'
+          go-version: '1.15.4'
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Install utils
+        run: |
+          sudo bash files/ci/check-install.sh
+      - name: Check spell and dead links
+        run: |
+          bash files/ci/check.sh

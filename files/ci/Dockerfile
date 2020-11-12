@@ -1,4 +1,3 @@
-# check https://docs.travis-ci.com/user/common-build-problems/#troubleshooting-locally-in-a-docker-image
 FROM ubuntu:18.04
 MAINTAINER Evgenii Sokolov <e.sokolov@sevensenders.com>
 

@@ -1,0 +1,20 @@
+name: Continious integration
+
+on:
+  pull_request_target:
+
+jobs:
+  spell_and_dead_links_checks:
+    if: github.repository == 'ru-de/faq'
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-go@v2
+        with:
+          stable: 'false'
+          go-version: '1.14.1'
+      - name: Check spell and dead links
+        run: |
+           false

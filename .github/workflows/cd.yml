@@ -1,4 +1,4 @@
-name: Update github pages
+name: Continuous delivery
 
 on:
   push:
@@ -6,6 +6,19 @@ on:
       - master
 
 jobs:
+  sort_dictionary:
+    if: github.repository == 'ru-de/faq'
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Sort dictionary
+        run: |
+            git config --global user.email "actions@github.com"
+            git config --global user.name "Github Actions"
+            LC_ALL=ru_RU.UTF8 sort files/dictionary.dic -o files/dictionary.dic -f
+            if ! git diff HEAD --quiet; then git commit -q -am "dictionary rearrangement" && git push; fi
   update_github_pages:
     if: github.repository == 'ru-de/faq'
     runs-on: ubuntu-18.04
@@ -13,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 100
-      - name: update
+      - name: Update github pages
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "Github Actions"

@@ -12,19 +12,11 @@ jobs:
         with:
           stable: 'false'
           go-version: '1.14.1'
-      - name: setup env
-        run: |
-          echo "GOPATH=$(dirname $GITHUB_WORKSPACE)/faq" >> $GITHUB_ENV
-          echo "$(dirname $GITHUB_WORKSPACE)/faq/bin" >> $GITHUB_PATH
-        shell: bash
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-          path: src/github.com/${{ github.repository }}
       - name: Install utils
         run: |
-          cd src/github.com/${{ github.repository }}
-          go env
           sudo bash files/check-install.sh
       - name: Check spell and dead links
         run: |

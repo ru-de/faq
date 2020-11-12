@@ -8,7 +8,7 @@ import (
     "regexp"
     "github.com/ewgRa/ci-utils/src/diff_liner"
     "github.com/ewgRa/ci-utils/src/links_checker"
-    "gopkg.in/russross/blackfriday.v2"
+    "github.com/russross/blackfriday/v2"
     "encoding/json"
     "github.com/google/go-github/github"
 )

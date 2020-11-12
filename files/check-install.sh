@@ -34,7 +34,6 @@ done
 echo "SET UTF-8" >> /tmp/dictionary.aff
 mv /tmp/dictionary.* /usr/share/hunspell
 
-go get ./...
 go get -u github.com/ewgRa/ci-utils/cmd/diff_liner
 go get -u github.com/ewgRa/ci-utils/cmd/hunspell_parser
 go get -u github.com/ewgRa/ci-utils/cmd/github_comments_diff

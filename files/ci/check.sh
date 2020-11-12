@@ -4,8 +4,6 @@ DIR=`dirname $0`
 
 git config --global core.quotepath false
 
-git diff HEAD^ --name-status | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
-
 curl "https://github-api-bot.herokuapp.com/diff?repo=${github.repository}&pr=${github.event.number}" > /tmp/pr.diff
 
 if [ "$?" != "0" ]; then
@@ -17,6 +15,8 @@ cat /tmp/pr.diff | diff_liner > /tmp/pr_liner.json
 
 rm -f /tmp/comments.json
 touch /tmp/comments.json
+
+curl -s -X GET -G https://api.github.com/repos/${github.repository}/pulls/${github.event.number}/files | jq -r '.[] | .filename' | grep "^D" -v | sed 's/^.\t//g' | grep "\.md$" > /tmp/changed_files
 
 while read FILE; do
     COMMIT=$(git log --pretty=format:"%H" -1 "$FILE");

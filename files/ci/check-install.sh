@@ -5,10 +5,10 @@ set -xe
 PWD_DIR=`pwd`
 DIR=`dirname $0`
 
-apt-get -yqq update && apt-get install -y hunspell hunspell-ru hunspell-en-us hunspell-de-de jq
+apt-get -yqq update && apt-get install -y curl wget unzip binutils hunspell hunspell-ru hunspell-en-us hunspell-de-de jq
 curl -s https://extensions.libreoffice.org/en/extensions/show/russian-spellcheck-dictionary > .dict_page
 echo -n "https://extensions.libreoffice.org" > .current_release
-strings .dict_page | grep -ozP '<li class="releaseRow">(\n|.)*?</li>' | grep -zoP 'href=".*?">Download' | head -1 | sed 's/href="//' | sed 's/">Download//' >> .current_release
+strings .dict_page | grep -ozP '<li class="releaseRow">(\n|.)*?</li>' | grep -zoP -m 1 'href=".*?">Download' | head -1 | sed 's/href="//' | sed 's/">Download//' >> .current_release
 cat .current_release | wget -q -i - -O /tmp/dictionary.otx
 unzip /tmp/dictionary.otx -d /tmp
 cp /tmp/*.dic /usr/share/hunspell

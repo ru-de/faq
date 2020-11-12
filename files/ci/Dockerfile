@@ -1,10 +1,11 @@
 # check https://docs.travis-ci.com/user/common-build-problems/#troubleshooting-locally-in-a-docker-image
-FROM travisci/ci-garnet:packer-1512502276-986baf0
+FROM ubuntu:18.04
 MAINTAINER Evgenii Sokolov <e.sokolov@sevensenders.com>
 
-USER travis
-ENV GOPATH "/home/travis/gopath"
-ENV GOROOT "/home/travis/.gimme/versions/go1.7.4.linux.amd64"
-ENV PATH "$GOPATH/bin:$GOROOT/bin:$PATH"
-COPY . $GOPATH/src/github.com/ru-de/faq/files
-RUN cd $GOPATH/src/github.com/ru-de/faq && sudo env PATH=$PATH GOPATH=$GOPATH bash files/check-install.sh
+RUN apt-get -yqq update && apt-get install -y wget
+RUN cd /tmp && wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz
+RUN cd /tmp && tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz
+ENV PATH "$PATH:/usr/local/go/bin"
+COPY . /tmp/files/ci
+RUN apt-get -yqq update && apt-get install -y git
+RUN cd /tmp/files/ci && bash check-install.sh

@@ -24,6 +24,7 @@ jobs:
       - name: Install utils
         run: |
           cd src/github.com/${{ github.repository }}
+          go env
           sudo bash files/check-install.sh
       - name: Check spell and dead links
         run: |

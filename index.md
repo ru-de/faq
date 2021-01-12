@@ -22,7 +22,7 @@ layout: default
 
 Чат в Skype: http://bit.ly/berlin-ru-it-chat
 
-Чат в Slack: [berlinru.slack.com](https://berlinru.slack.com), чтобы получить инвайт заполните форму здесь [berlin-ru.herokuapp.com](https://berlin-ru.herokuapp.com)
+Чат в Slack: [berlinru.slack.com](https://berlinru.slack.com), чтобы получить инвайт заполните форму здесь [join.slack.com](https://join.slack.com/t/berlinru/shared_invite/zt-kjx223xh-6h~rdY7ihSZjgLMXCUWtQw)
 
 Чат в Telegram:
 

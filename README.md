@@ -22,7 +22,7 @@
 
 Чаты в Slack:
 
-- [Germany-ru](https://germany-ru.herokuapp.com/) - чат созданный активными участниками берлинского Slack'а
+- [Germany-ru](https://germany-ru.herokuapp.com/) - общий русскоязычный Slack людей живущих и работающих в Германии
 - [berlinru.slack.com](https://berlinru.slack.com), чтобы получить инвайт заполните форму здесь [join.slack.com](https://join.slack.com/t/berlinru/shared_invite/zt-kjx223xh-6h~rdY7ihSZjgLMXCUWtQw)
 
 Чаты в Telegram:

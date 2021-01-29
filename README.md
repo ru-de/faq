@@ -6,7 +6,7 @@
 
 Сайт-зеркало: https://ru-de.github.io/faq/
 
-# Авторские права и отказ от ответственности
+## Авторские права и отказ от ответственности
 
 Материалы этого репозитория создаются и редактируются различными людьми на добровольной основе. Их использование и распространение разрешается на условиях [лицензионных соглашений](LICENSE). Если вы вносите изменения в репозиторий, вы соглашаетесь с тем, что лицензионные соглашения с этого момента распространяются на материалы с вашими изменениями, и подтверждаете, что имеете все необходимые права и разрешения на предоставление такого согласия.
 
@@ -14,22 +14,29 @@
 
 Если вы используете материалы, то делаете это на свой страх и риск. Всегда перепроверяйте интересующие вас сведения. Обратите внимание, что информация может устаревать (например, в связи с внесением изменений в законы и подзаконные акты).
 
-# Общение
+## Общение
+
+### Чаты и каналы Telegram
 
 Чат в Skype: http://bit.ly/berlin-ru-it-chat
 
-Чат в Slack: [berlinru.slack.com](https://berlinru.slack.com), чтобы получить инвайт заполните форму здесь [join.slack.com](https://join.slack.com/t/berlinru/shared_invite/zt-kjx223xh-6h~rdY7ihSZjgLMXCUWtQw)
+Чаты в Slack:
 
-Чат в Telegram:
+- [germany-ru.slack.com](https://germany-ru.herokuapp.com/) - чат созданный активными участниками берлинского слака
+- [berlinru.slack.com](https://berlinru.slack.com), чтобы получить инвайт заполните форму здесь [join.slack.com](https://join.slack.com/t/berlinru/shared_invite/zt-kjx223xh-6h~rdY7ihSZjgLMXCUWtQw)
+
+Чаты в Telegram:
 
 - Общий чат Германия: https://t.me/tractor_de
-- Берлинские чаты: 
-    - https://t.me/berlinru
-    - https://t.me/berlinonline
+- Берлинские чаты:
+  - https://t.me/berlinru
+  - https://t.me/berlinonline
 - Мюнхен: https://t.me/muenchentraktor
 - Франкфурт: https://t.me/mein_frankfurt
 - Гамбург: https://t.me/hamburgru
 
 Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
+
+### Соцсети
 
 Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/

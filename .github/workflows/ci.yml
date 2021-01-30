@@ -21,7 +21,7 @@ jobs:
       - name: Check spell and dead links
         run: |
           bash files/ci/check.sh
-      - name: Lint changelog file
+      - name: Lint markdown syntax
         uses: avto-dev/markdown-lint@v1
         continue-on-error: true
         with:

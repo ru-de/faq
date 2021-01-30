@@ -4,7 +4,7 @@
 
 Вы очень поможете, если поделитесь своим ценным и полезным опытом, исправите устаревшую информацию или сообщите о ней. Это можно сделать прямо в интерфейсе GitHub: вверху каждой страницы есть кнопка редактирования (иконка выглядит как карандаш). При нажатии на неё автоматически создаётся ваш личный клон этого репозитория. Дальше вы можете редактировать файлы в вашем клоне. Когда готово — отправляете pull request в головной репозиторий. Всё делается прямо на сайте, консоль или другие программы использовать не требуется. Предварительно рекомендуем ознакомиться с [рекомендациями](CONTRIBUTING.md) какая информация приветствуется и как ее оформить.
 
-Сайт-зеркало: https://ru-de.github.io/faq/
+Сайт-зеркало: <https://ru-de.github.io/faq/>
 
 ## Авторские права и отказ от ответственности
 
@@ -18,7 +18,7 @@
 
 ### Чаты и каналы Telegram
 
-Чат в Skype: http://bit.ly/berlin-ru-it-chat
+Чат в Skype: <http://bit.ly/berlin-ru-it-chat>
 
 Чаты в Slack:
 
@@ -27,16 +27,16 @@
 
 Чаты в Telegram:
 
-- Общий чат Германия: https://t.me/tractor_de
+- Общий чат Германия: <https://t.me/tractor_de>
 - Берлинские чаты:
-  - https://t.me/berlinru
-  - https://t.me/berlinonline
-- Мюнхен: https://t.me/muenchentraktor
-- Франкфурт: https://t.me/mein_frankfurt
-- Гамбург: https://t.me/hamburgru
+  - <https://t.me/berlinru>
+  - <https://t.me/berlinonline>
+- Мюнхен: <https://t.me/muenchentraktor>
+- Франкфурт: <https://t.me/mein_frankfurt>
+- Гамбург: <https://t.me/hamburgru>
 
-Женский чат в Skype: https://join.skype.com/mA676LOZb1Eg
+Женский чат в Skype: <https://join.skype.com/mA676LOZb1Eg>
 
 ### Соцсети
 
-Группа «ИТ Берлин» в Facebook: https://www.facebook.com/groups/itberlin/
+Группа «ИТ Берлин» в Facebook: <https://www.facebook.com/groups/itberlin/>

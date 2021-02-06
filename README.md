@@ -22,8 +22,8 @@
 
 Чаты в Slack:
 
-- [berlinru.slack.com](https://berlinru.slack.com), слак людей из Берлина и остальной Германии, более 1800 пользователей, чтобы получить инвайт заполните форму здесь [join.slack.com](https://join.slack.com/t/berlinru/shared_invite/zt-lty62naa-P7KPnCmyW~oUR0f0jNTyUg)
-- [Germany RU](https://germany-ru.herokuapp.com/) - альтернативный слак людей живущих и работающих в Германии, необходима регистрация по номеру телефона и обязательны реальные имена
+- [berlinru.slack.com](https://berlinru.slack.com), slack людей из Берлина и остальной Германии, более 1800 пользователей, чтобы получить инвайт заполните форму здесь [join.slack.com](https://join.slack.com/t/berlinru/shared_invite/zt-lty62naa-P7KPnCmyW~oUR0f0jNTyUg)
+- [Germany RU](https://germany-ru.herokuapp.com/) - альтернативный slack людей живущих и работающих в Германии, необходима регистрация по номеру телефона и обязательны реальные имена
 
 Чаты в Telegram:
 

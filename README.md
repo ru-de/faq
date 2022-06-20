@@ -22,7 +22,7 @@
 
 Чаты в Slack:
 
-- [berlinru.slack.com](https://berlinru.slack.com), slack людей из Берлина и остальной Германии, более 1800 пользователей, чтобы получить инвайт заполните форму [здесь](https://berlinru.herokuapp.com/)
+- [berlinru.slack.com](https://berlinru.slack.com), slack людей из Берлина и остальной Германии, более 2200 пользователей, чтобы получить инвайт заполните форму [здесь](https://berlinru.herokuapp.com/)
 - [Germany RU](https://germany-ru.herokuapp.com/) - альтернативный slack людей живущих и работающих в Германии, необходима регистрация по номеру телефона и обязательны реальные имена
 
 Чаты в Telegram:

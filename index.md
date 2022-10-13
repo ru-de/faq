@@ -22,7 +22,9 @@ layout: default
 
 ### Чаты и каналы Telegram
 
-Чат в Skype: <http://bit.ly/berlin-ru-it-chat>
+Чаты в Skype:
+- <http://bit.ly/berlin-ru-it-chat> - берлинский
+- <https://join.skype.com/mA676LOZb1Eg> - женский чат
 
 Чаты в Slack:
 
@@ -36,10 +38,12 @@ layout: default
   - <https://t.me/berlinonline>
   - <https://t.me/berlinru>
 - Гамбург: <https://t.me/hamburgru>
-- Мюнхен: <https://t.me/muenchentraktor>
+- Мюнхен:
+  - <https://t.me/muenchentraktor> - общий
+  - <https://t.me/munich_cars> - авто-чат
+  - <https://t.me/munichmoney> - денежный
+  - <https://t.me/nastolki_munchen> - настольные игры
 - Франкфурт: <https://t.me/mein_frankfurt>
-
-Женский чат в Skype: <https://join.skype.com/mA676LOZb1Eg>
 
 ### Соцсети
 

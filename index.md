@@ -35,8 +35,8 @@ layout: default
 
 - Общий чат Германия: <https://t.me/tractor_de>
 - Берлинские чаты:
-  - <https://t.me/berlinonline>
-  - <https://t.me/berlinru>
+  - <https://t.me/BerlinFailed>
+  - <https://t.me/berlinsob>
 - Гамбург: <https://t.me/hamburgru>
 - Мюнхен:
   - <https://t.me/muenchentraktor> - общий

@@ -40,6 +40,7 @@
   - <https://t.me/munichmoney> - денежный
   - <https://t.me/nastolki_munchen> - настольные игры
 - Франкфурт: <https://t.me/mein_frankfurt>
+- Ингольштадт: <https://t.me/our_ingolstadt>
 
 ### Соцсети
 

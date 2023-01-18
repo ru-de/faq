@@ -30,7 +30,14 @@
 Чаты в Telegram:
 
 - Общий чат Германия: <https://t.me/tractor_de>
+- Тематические:
+  - [IT 🇩🇪 Германия](https://t.me/itgermania)
+  - [Маркетинг 🇩🇪 Германия🛍](https://t.me/+4xioVxnBrlw3M2Vi)
+  - [Бизнес 🇩🇪 Германия](https://t.me/business_germania)
+  - [Финансы 🇩🇪 Германия 🏦](https://t.me/financesgermania)
+  - [Право 🇩🇪 Германия 📖](https://t.me/lawgermany)
 - Берлинские чаты:
+  - [IT 🇩🇪 Берлин](https://t.me/itgermania_berlin)
   - <https://t.me/BerlinFailed>
   - <https://t.me/berlinsob>
 - Гамбург: <https://t.me/hamburgru>
@@ -39,7 +46,9 @@
   - <https://t.me/munich_cars> - авто-чат
   - <https://t.me/munichmoney> - денежный
   - <https://t.me/nastolki_munchen> - настольные игры
-- Франкфурт: <https://t.me/mein_frankfurt>
+- Франкфурт:
+  - [IT 🇩🇪 Франкфурт](https://t.me/itgermania_frankfurt) 
+  - <https://t.me/mein_frankfurt>
 - Ингольштадт: <https://t.me/our_ingolstadt>
 
 ### Соцсети

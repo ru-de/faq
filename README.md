@@ -33,14 +33,24 @@
 - Берлинские чаты:
   - <https://t.me/BerlinFailed>
   - <https://t.me/berlinsob>
+  - <https://t.me/itgermania_berlin> - IT Берлин
 - Гамбург: <https://t.me/hamburgru>
 - Мюнхен:
   - <https://t.me/muenchentraktor> - общий
   - <https://t.me/munich_cars> - авто-чат
   - <https://t.me/munichmoney> - денежный
   - <https://t.me/nastolki_munchen> - настольные игры
-- Франкфурт: <https://t.me/mein_frankfurt>
+- Франкфурт:
+  - <https://t.me/mein_frankfurt> - общий
+  - <https://t.me/itgermania_frankfurt> - IT
 - Ингольштадт: <https://t.me/our_ingolstadt>
+- Общенемецкие:
+  - <https://t.me/tractor_de> - общий
+  - <https://t.me/itgermania> - IT
+  - <https://t.me/+4xioVxnBrlw3M2Vi> - маркетинг
+  - <https://t.me/business_germania> - бизнес
+  - <https://t.me/financesgermania> - финансы
+  - <https://t.me/lawgermany> - право и законы
 
 ### Соцсети
 

@@ -8,7 +8,7 @@ on:
 jobs:
   sort_dictionary:
     if: github.repository == 'ru-de/faq'
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -21,7 +21,7 @@ jobs:
             if ! git diff HEAD --quiet; then git commit -q -am "dictionary rearrangement" && git push; fi
   update_github_pages:
     if: github.repository == 'ru-de/faq'
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
         with:

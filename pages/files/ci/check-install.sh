@@ -6,10 +6,7 @@ PWD_DIR=`pwd`
 DIR=`dirname $0`
 
 apt-get -yqq update && apt-get install -y curl wget unzip binutils hunspell hunspell-ru hunspell-en-us hunspell-de-de jq
-curl -s https://extensions.libreoffice.org/en/extensions/show/russian-spellcheck-dictionary > .dict_page
-echo -n "https://extensions.libreoffice.org" > .current_release
-strings .dict_page | grep -ozP '<li class="releaseRow">(\n|.)*?</li>' | grep -zoP -m 1 'href=".*?">Download' | head -1 | sed 's/href="//' | sed 's/">Download//' >> .current_release
-cat .current_release | wget -q -i - -O /tmp/dictionary.otx
+wget https://extensions.libreoffice.org/assets/downloads/48/dict_ru_ru-aot-0.4.5.oxt -O /tmp/dictionary.otx 
 unzip /tmp/dictionary.otx -d /tmp
 cp /tmp/*.dic /usr/share/hunspell
 cp /tmp/*.aff /usr/share/hunspell
@@ -35,10 +32,10 @@ done
 echo "SET UTF-8" >> /tmp/dictionary.aff
 mv /tmp/dictionary.* /usr/share/hunspell
 
-go get -u github.com/ewgRa/ci-utils/cmd/diff_liner
-go get -u github.com/ewgRa/ci-utils/cmd/hunspell_parser
-go get -u github.com/ewgRa/ci-utils/cmd/github_comments_diff
-go get -u github.com/ewgRa/ci-utils/cmd/github_comments_send
+go install github.com/ewgRa/ci-utils/cmd/diff_liner@latest
+go install github.com/ewgRa/ci-utils/cmd/hunspell_parser@latest
+go install github.com/ewgRa/ci-utils/cmd/github_comments_diff@latest
+go install github.com/ewgRa/ci-utils/cmd/github_comments_send@latest
 
 cd $DIR/go
 go build -o /tmp/check_spell check_spell/main.go

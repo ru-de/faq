@@ -32,10 +32,10 @@ done
 echo "SET UTF-8" >> /tmp/dictionary.aff
 mv /tmp/dictionary.* /usr/share/hunspell
 
-go get -u github.com/ewgRa/ci-utils/cmd/diff_liner
-go get -u github.com/ewgRa/ci-utils/cmd/hunspell_parser
-go get -u github.com/ewgRa/ci-utils/cmd/github_comments_diff
-go get -u github.com/ewgRa/ci-utils/cmd/github_comments_send
+go install github.com/ewgRa/ci-utils/cmd/diff_liner@latest
+go install github.com/ewgRa/ci-utils/cmd/hunspell_parser@latest
+go install github.com/ewgRa/ci-utils/cmd/github_comments_diff@latest
+go install github.com/ewgRa/ci-utils/cmd/github_comments_send@latest
 
 cd $DIR/go
 go build -o /tmp/check_spell check_spell/main.go

@@ -6,7 +6,7 @@ on:
 jobs:
   spell_and_dead_links_checks:
     if: github.repository == 'ru-de/faq'
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/setup-go@v2
         with:

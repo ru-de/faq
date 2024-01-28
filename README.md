@@ -43,6 +43,7 @@
 - Франкфурт:
   - <https://t.me/mein_frankfurt> - общий
   - <https://t.me/itgermania_frankfurt> - IT
+- Дортмунд: <https://t.me/dortmund_ru>
 - Ингольштадт: <https://t.me/our_ingolstadt>
 - Общенемецкие:
   - <https://t.me/tractor_de> - общий

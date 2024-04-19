@@ -50,7 +50,6 @@
   - <https://t.me/+4xioVxnBrlw3M2Vi> - маркетинг
   - <https://t.me/business_germania> - бизнес
   - <https://t.me/germanyfinchat_ru> - денежный
-  - <https://t.me/financesgermania> - финансы
   - <https://t.me/lawgermany> - право и законы
 
 ### Соцсети

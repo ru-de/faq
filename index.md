@@ -42,7 +42,6 @@ layout: default
 - Мюнхен:
   - <https://t.me/muenchentraktor> - общий
   - <https://t.me/munich_cars> - авто-чат
-  - <https://t.me/munichmoney> - денежный
   - <https://t.me/nastolki_munchen> - настольные игры
 - Франкфурт:
   - <https://t.me/mein_frankfurt> - общий
@@ -54,7 +53,7 @@ layout: default
   - <https://t.me/itgermania> - IT
   - <https://t.me/+4xioVxnBrlw3M2Vi> - маркетинг
   - <https://t.me/business_germania> - бизнес
-  - <https://t.me/financesgermania> - финансы
+  - <https://t.me/germanyfinchat_ru> - денежный
   - <https://t.me/lawgermany> - право и законы
 
 ### Соцсети

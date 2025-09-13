@@ -43,6 +43,8 @@ layout: default
   - <https://t.me/muenchentraktor> - общий
   - <https://t.me/munich_cars> - авто-чат
   - <https://t.me/nastolki_munchen> - настольные игры
+- Нюрнберг:
+- <https://t.me/seriosly_nurnberg>
 - Франкфурт:
   - <https://t.me/mein_frankfurt> - общий
   - <https://t.me/itgermania_frankfurt> - IT

@@ -51,7 +51,7 @@
   - <https://t.me/itgermania> - IT
   - <https://t.me/+4xioVxnBrlw3M2Vi> - маркетинг
   - <https://t.me/business_germania> - бизнес
-  - <https://t.me/germanyfinchat_ru> - денежный
+  - <https://t.me/germanyfin_ru> - денежный
   - <https://t.me/lawgermany> - право и законы
 
 ### Соцсети

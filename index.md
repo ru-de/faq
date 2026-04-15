@@ -22,10 +22,6 @@ layout: default
 
 ### Чаты и каналы Telegram
 
-Чаты в Skype:
-- <http://bit.ly/berlin-ru-it-chat> - берлинский
-- <https://join.skype.com/mA676LOZb1Eg> - женский чат
-
 Чаты в Slack:
 
 - [berlinru.slack.com](https://berlinru.slack.com), slack людей из Берлина и остальной Германии, более 2200 пользователей, чтобы получить инвайт заполните форму [здесь](https://berlinru.herokuapp.com/)
